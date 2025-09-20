@@ -1,0 +1,2670 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Miraç ❤️ Rümeysa - Sonsuza Kadar Birlikte 💕</title>
+    <meta name="description" content="Miraç'tan Rümeysa'ya özel sevgi sitesi">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💕</text></svg>">
+    
+
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            background: linear-gradient(135deg, #ff9aa2 0%, #ffb7b2 25%, #ffc2c7 50%, #ffdbc1 75%, #fff2cc 100%);
+            color: #333;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+
+
+        /* Surprise Box Styles */
+        .surprise-section {
+            padding: 80px 20px;
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .surprise-section h2 {
+            font-size: 3rem;
+            color: #d63384;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .surprise-subtitle {
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 40px;
+            font-style: italic;
+        }
+
+        .surprise-box {
+            width: 250px;
+            height: 200px;
+            margin: 0 auto;
+            position: relative;
+            cursor: pointer;
+            transition: all 0.5s ease;
+        }
+
+        .box-base {
+            width: 100%;
+            height: 70%;
+            background: linear-gradient(45deg, #ff1744, #e91e63);
+            border-radius: 10px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+            position: relative;
+            bottom: 0;
+        }
+
+        .box-lid {
+            width: 105%;
+            height: 40%;
+            background: linear-gradient(45deg, #ff4569, #ff1744);
+            border-radius: 10px 10px 5px 5px;
+            position: absolute;
+            top: 0;
+            left: -2.5%;
+            transition: all 1s ease;
+            transform-origin: bottom center;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .box-ribbon {
+            width: 8px;
+            height: 100%;
+            background: gold;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+        }
+
+        .box-bow {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 2rem;
+            color: gold;
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.8);
+        }
+
+        .surprise-box:hover {
+            transform: scale(1.05);
+        }
+
+        .surprise-box.opening .box-lid {
+            transform: rotateX(-180deg);
+        }
+
+        .surprise-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            opacity: 0;
+            transition: all 1s ease;
+            z-index: 10;
+        }
+
+        .surprise-content.visible {
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(1.2);
+        }
+
+        .surprise-message {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            font-size: 1.3rem;
+            color: #d63384;
+            max-width: 400px;
+            border: 3px solid gold;
+        }
+
+        .explosion-hearts {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .explosion-heart {
+            position: absolute;
+            font-size: 2rem;
+            color: #e91e63;
+            animation: explode 2s ease-out forwards;
+        }
+
+        @keyframes explode {
+            0% {
+                transform: scale(0) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(2) rotate(360deg) translate(var(--random-x), var(--random-y));
+                opacity: 0;
+            }
+        }
+
+        /* Garden Section Styles */
+        .garden-section {
+            padding: 80px 20px;
+            background: linear-gradient(135deg, #e8f5e8 0%, #f0fff0 50%, #e6ffe6 100%);
+            text-align: center;
+            position: relative;
+        }
+
+        .garden-section h2 {
+            font-size: 3rem;
+            color: #2e8b57;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .garden-subtitle {
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 50px;
+            font-style: italic;
+        }
+
+        .flower-garden {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .flower-pot {
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+        }
+
+        .flower-pot:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            background: rgba(255, 255, 255, 0.5);
+        }
+
+        .flower {
+            font-size: 4rem;
+            margin-bottom: 15px;
+            transition: all 0.3s ease;
+            display: block;
+        }
+
+        .flower-pot:hover .flower {
+            transform: scale(1.2);
+            filter: drop-shadow(0 0 20px rgba(255, 192, 203, 0.8));
+        }
+
+        .flower-name {
+            font-size: 1.1rem;
+            color: #2e8b57;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .flower-message {
+            font-size: 0.9rem;
+            color: #666;
+            line-height: 1.4;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all 0.3s ease;
+        }
+
+        .flower-pot:hover .flower-message {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .flower-compliment {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(255, 255, 255, 0.95);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            z-index: 1000;
+            opacity: 0;
+            transition: all 0.5s ease;
+            max-width: 400px;
+            text-align: center;
+            border: 3px solid #ff69b4;
+        }
+
+        .flower-compliment.visible {
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(1.05);
+        }
+
+        .compliment-text {
+            font-size: 1.2rem;
+            color: #d63384;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .compliment-close {
+            background: linear-gradient(45deg, #ff6b9d, #c44569);
+            border: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .compliment-close:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        .falling-hearts {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .heart {
+            position: absolute;
+            font-size: 20px;
+            color: rgba(255, 20, 147, 0.7);
+            animation: fall linear infinite;
+            pointer-events: none;
+        }
+
+        @keyframes fall {
+            from {
+                transform: translateY(-100vh) rotate(0deg);
+                opacity: 1;
+            }
+            to {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 4.2rem;
+            background: linear-gradient(45deg, #ff6b9d, #ffc3d8, #ff6b9d, #c44569);
+            background-size: 300% 300%;
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradientShift 4s ease infinite, textGlow 2s ease-in-out infinite;
+            font-weight: 700;
+            letter-spacing: -1px;
+            text-align: center;
+            line-height: 1.1;
+            margin-bottom: 25px;
+            text-shadow: none;
+        }
+
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            25% { transform: scale(1.05); }
+            50% { transform: scale(1.1); }
+            75% { transform: scale(1.05); }
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            color: #6f42c1;
+            margin-bottom: 40px;
+            font-style: italic;
+        }
+
+        .magic-button {
+            background: linear-gradient(45deg, #ff1744, #e91e63);
+            border: none;
+            padding: 20px 40px;
+            font-size: 1.2rem;
+            color: white;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(255, 23, 68, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .magic-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(255, 23, 68, 0.4);
+        }
+
+        .magic-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            transition: left 0.5s;
+        }
+
+        .magic-button:hover::before {
+            left: 100%;
+        }
+
+        /* Love Reasons Section */
+        .love-reasons {
+            padding: 80px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .love-reasons h2 {
+            font-size: 3rem;
+            color: #d63384;
+            margin-bottom: 50px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .cards-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .love-card {
+            width: 100%;
+            height: 220px;
+            position: relative;
+            perspective: 1000px;
+            filter: drop-shadow(0 8px 25px rgba(0, 0, 0, 0.15));
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+            cursor: pointer;
+        }
+
+        .love-card:hover .card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .card-front, .card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            background: linear-gradient(135deg, #ff6b9d, #c44569);
+            border-radius: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            padding: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .card-back {
+            transform: rotateY(180deg);
+            background: linear-gradient(135deg, #667eea, #764ba2);
+        }
+
+        .card-emoji {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+
+        .card-text {
+            font-size: 1.1rem;
+            line-height: 1.5;
+            text-align: center;
+        }
+
+        /* Love Letters Section */
+        .love-letters {
+            padding: 80px 20px;
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            text-align: center;
+            position: relative;
+        }
+
+        .love-letters h2 {
+            font-size: 3rem;
+            color: #d63384;
+            margin-bottom: 50px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .letter-container {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .letter-envelope {
+            width: 300px;
+            height: 200px;
+            background: #f8f9fa;
+            border: 3px solid #d63384;
+            border-radius: 10px;
+            margin: 0 auto 40px;
+            position: relative;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .letter-envelope:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .envelope-flap {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 50%;
+            background: #e91e63;
+            clip-path: polygon(0 0, 50% 70%, 100% 0);
+            transition: all 0.5s ease;
+            transform-origin: top center;
+        }
+
+        .letter-envelope.opened .envelope-flap {
+            transform: rotateX(-180deg);
+        }
+
+        .envelope-heart {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 2rem;
+            color: #d63384;
+        }
+
+        .letter-content {
+            max-width: 600px;
+            margin: 40px auto;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.5s ease;
+            border-left: 5px solid #e91e63;
+        }
+
+        .letter-content:hover {
+            background: rgba(255, 255, 255, 0.98);
+            transform: translateY(-2px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
+
+        .letter-content.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .letter-content.visible:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 240, 245, 0.98);
+            box-shadow: 0 20px 40px rgba(233, 30, 99, 0.2);
+        }
+
+        .letter-date {
+            color: #666;
+            font-style: italic;
+            margin-bottom: 20px;
+            font-size: 0.9rem;
+        }
+
+        .letter-text {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: #333;
+            text-align: left;
+            margin-bottom: 30px;
+        }
+
+        .letter-signature {
+            text-align: right;
+            font-size: 1.1rem;
+            color: #d63384;
+            font-style: italic;
+            font-weight: bold;
+        }
+
+        .letter-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+
+        .letter-btn {
+            padding: 12px 25px;
+            background: linear-gradient(45deg, #ff6b9d, #c44569);
+            border: none;
+            border-radius: 25px;
+            color: white;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .letter-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .floating-hearts {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .floating-heart {
+            position: absolute;
+            font-size: 1.5rem;
+            color: rgba(233, 30, 99, 0.6);
+            animation: floatUp 4s linear infinite;
+        }
+
+        @keyframes floatUp {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+        .game-section {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 80px 20px;
+            text-align: center;
+            position: relative;
+        }
+
+        .game-section h2 {
+            font-size: 2.5rem;
+            color: #d63384;
+            margin-bottom: 30px;
+        }
+
+        .game-area {
+            width: 100%;
+            max-width: 600px;
+            height: 400px;
+            margin: 0 auto;
+            background: linear-gradient(135deg, #ffecd2, #fcb69f);
+            border-radius: 20px;
+            position: relative;
+            overflow: hidden;
+            cursor: crosshair;
+            border: 3px solid #ff1744;
+        }
+
+        .game-heart {
+            position: absolute;
+            font-size: 30px;
+            color: #e91e63;
+            cursor: pointer;
+            transition: transform 0.2s;
+            animation: gameHeartFall linear infinite;
+        }
+
+        @keyframes gameHeartFall {
+            from {
+                transform: translateY(-50px);
+            }
+            to {
+                transform: translateY(400px);
+            }
+        }
+
+        .game-heart:hover {
+            transform: scale(1.2);
+        }
+
+        .game-stats {
+            margin-top: 20px;
+            font-size: 1.2rem;
+        }
+
+        .score {
+            color: #d63384;
+            font-weight: bold;
+        }
+
+        .game-message {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 1.5rem;
+            color: #ff1744;
+            font-weight: bold;
+            opacity: 0;
+            transition: opacity 0.5s;
+            pointer-events: none;
+        }
+
+        /* Timeline Section */
+        .timeline {
+            padding: 80px 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .timeline h2 {
+            text-align: center;
+            font-size: 3rem;
+            color: #d63384;
+            margin-bottom: 50px;
+        }
+
+        .timeline-item {
+            display: flex;
+            margin-bottom: 40px;
+            align-items: center;
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: all 0.6s ease;
+        }
+
+        .timeline-item.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .timeline-item:nth-child(even) {
+            flex-direction: row-reverse;
+            transform: translateX(50px);
+        }
+
+        .timeline-item.visible:nth-child(even) {
+            transform: translateX(0);
+        }
+
+        .timeline-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(45deg, #ff6b9d, #c44569);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: white;
+            margin: 0 30px;
+        }
+
+        .timeline-content {
+            flex: 1;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .timeline-content h3 {
+            color: #d63384;
+            margin-bottom: 10px;
+        }
+
+        /* Final Section */
+        .final-section {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stars {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+
+        .star {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes twinkle {
+            from { opacity: 0.3; transform: scale(0.8); }
+            to { opacity: 1; transform: scale(1.2); }
+        }
+
+        .final-section h2 {
+            font-size: 4rem;
+            color: white;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            animation: glow 3s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from { text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); }
+            to { text-shadow: 0 0 20px rgba(255, 255, 255, 0.8), 2px 2px 4px rgba(0, 0, 0, 0.3); }
+        }
+
+        @keyframes slideInUp {
+            from {
+                transform: translateY(20px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes bounceIn {
+            0% {
+                transform: scale(0.3);
+                opacity: 0;
+            }
+            50% {
+                transform: scale(1.1);
+            }
+            70% {
+                transform: scale(0.9);
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeInScale {
+            from {
+                transform: scale(0.8);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeOutScale {
+            from {
+                transform: scale(1);
+                opacity: 1;
+            }
+            to {
+                transform: scale(0.8);
+                opacity: 0;
+            }
+        }
+
+        /* Advanced Modern Animations */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        @keyframes sparkle {
+            0%, 100% { opacity: 0; transform: scale(0) rotate(0deg); }
+            50% { opacity: 1; transform: scale(1) rotate(180deg); }
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        @keyframes textGlow {
+            0%, 100% { text-shadow: 0 0 5px rgba(255, 255, 255, 0.5); }
+            50% { text-shadow: 0 0 20px rgba(255, 255, 255, 0.8), 0 0 30px rgba(255, 107, 157, 0.6); }
+        }
+
+        /* Yeni Sürpriz Kutu Animasyonları - Optimize Edilmiş */
+        @keyframes growHeart {
+            0% { 
+                opacity: 0; 
+                transform: scale(0) rotate(0deg); 
+            }
+            50% { 
+                opacity: 1; 
+                transform: scale(3) rotate(180deg); 
+            }
+            100% { 
+                opacity: 1; 
+                transform: scale(5) rotate(360deg); 
+                font-size: 80px;
+            }
+        }
+
+        @keyframes explodeHeart {
+            0% { 
+                transform: scale(5); 
+                opacity: 1; 
+            }
+            100% { 
+                transform: scale(8); 
+                opacity: 0; 
+                filter: blur(5px);
+            }
+        }
+
+        @keyframes showLoveMessage {
+            0% { 
+                opacity: 0; 
+                transform: scale(0.5) translateY(50px); 
+            }
+            100% { 
+                opacity: 1; 
+                transform: scale(1) translateY(0); 
+            }
+        }
+
+        @keyframes heartRainFall {
+            0% { 
+                transform: translateY(-50px) rotate(0deg); 
+                opacity: 1; 
+            }
+            100% { 
+                transform: translateY(100vh) rotate(360deg); 
+                opacity: 0; 
+            }
+        }
+
+        /* Sürpriz mesaj stilleri */
+        .main-love-text {
+            font-size: 4rem;
+            font-weight: bold;
+            background: linear-gradient(45deg, #ff6b9d, #ffc3d8, #ff6b9d);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: textGlow 2s ease-in-out infinite;
+            margin-bottom: 20px;
+        }
+
+        .sub-love-text {
+            font-size: 2.5rem;
+            color: #ffc3d8;
+            margin-bottom: 30px;
+            text-shadow: 0 0 10px rgba(255, 195, 216, 0.6);
+        }
+
+        .love-details {
+            font-size: 1.3rem;
+            color: #ffecd2;
+            line-height: 1.6;
+            margin-bottom: 40px;
+            max-width: 600px;
+        }
+
+        .close-hint {
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.7);
+            opacity: 0.8;
+        }
+
+        /* Yeni Çiçek Popup Stilleri */
+        .flower-compliment-new {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 9999;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .flower-compliment-new.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .compliment-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(10px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+
+        .compliment-card {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 240, 245, 0.9) 100%);
+            border-radius: 25px;
+            max-width: 500px;
+            width: 90%;
+            padding: 0;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3), 0 10px 30px rgba(255, 107, 157, 0.2);
+            transform: scale(0.8) translateY(50px);
+            transition: transform 0.3s ease;
+            cursor: default;
+            overflow: hidden;
+        }
+
+        .flower-compliment-new.show .compliment-card {
+            transform: scale(1) translateY(0);
+        }
+
+        .compliment-header {
+            background: linear-gradient(135deg, #ff6b9d 0%, #c44569 100%);
+            color: white;
+            padding: 25px;
+            text-align: center;
+            position: relative;
+        }
+
+        .flower-icon-large {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            display: block;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .flower-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: white;
+            font-size: 2rem;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .close-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: scale(1.1);
+        }
+
+        .compliment-body {
+            padding: 30px;
+        }
+
+        .compliment-text {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #333;
+            margin: 0;
+            text-align: center;
+        }
+
+        .compliment-footer {
+            background: linear-gradient(135deg, rgba(255, 107, 157, 0.1) 0%, rgba(196, 69, 105, 0.1) 100%);
+            padding: 20px;
+            text-align: center;
+            border-top: 1px solid rgba(255, 107, 157, 0.2);
+        }
+
+        .love-signature {
+            color: #c44569;
+            font-style: italic;
+            font-weight: 500;
+        }
+
+        @media (max-width: 768px) {
+            .compliment-card {
+                margin: 20px;
+                width: calc(100% - 40px);
+            }
+            
+            .compliment-header {
+                padding: 20px;
+            }
+            
+            .flower-title {
+                font-size: 1.3rem;
+            }
+            
+            .compliment-body {
+                padding: 25px 20px;
+            }
+        }
+
+        .final-section p {
+            font-size: 1.5rem;
+            color: #ffecd2;
+            max-width: 600px;
+            line-height: 1.8;
+            margin: 0 20px;
+        }
+
+        /* Enhanced Responsive Design - Premium Mobile Experience */
+        @media (max-width: 1200px) {
+            .container {
+                padding: 0 30px;
+            }
+            
+            .love-cards {
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+                gap: 30px;
+            }
+        }
+        
+        @media (max-width: 992px) {
+            .love-cards {
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+                gap: 25px;
+            }
+            
+            .flower-garden {
+                grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+                gap: 20px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.8rem;
+                margin-bottom: 20px;
+                line-height: 1.2;
+            }
+            
+            .hero p {
+                font-size: 1.3rem;
+                margin-bottom: 35px;
+                padding: 0 15px;
+                line-height: 1.6;
+            }
+            
+            .magic-button {
+                padding: 18px 30px;
+                font-size: 1.1rem;
+                margin: 15px;
+                min-height: 60px;
+                border-radius: 35px;
+                box-shadow: 0 10px 30px rgba(255, 107, 157, 0.3);
+            }
+            
+            .love-reasons h2 {
+                font-size: 2rem;
+            }
+            
+            .cards-container {
+                grid-template-columns: 1fr;
+                gap: 20px;
+                padding: 0 10px;
+            }
+            
+            .love-card {
+                height: 180px;
+            }
+            
+            .card-text {
+                font-size: 1rem;
+                padding: 10px;
+            }
+            
+            /* Love Letters Mobile */
+            .love-letters {
+                padding: 60px 15px;
+            }
+            
+            .love-letters h2 {
+                font-size: 2rem;
+                margin-bottom: 30px;
+            }
+            
+            .letter-envelope {
+                width: 280px;
+                height: 180px;
+                margin: 0 auto 30px;
+            }
+            
+            .letter-content {
+                padding: 25px 20px;
+                margin: 30px 10px;
+            }
+            
+            .letter-text {
+                font-size: 1rem;
+                line-height: 1.6;
+            }
+            
+            .letter-buttons {
+                gap: 10px;
+                padding: 0 10px;
+            }
+            
+            .letter-btn {
+                padding: 10px 15px;
+                font-size: 0.9rem;
+                flex: 1;
+                max-width: 150px;
+            }
+            
+            /* Game Section Mobile */
+            .game-area {
+                height: 300px;
+                margin: 0 10px;
+            }
+            
+            .game-stats {
+                padding: 0 10px;
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .game-section {
+                padding: 60px 15px;
+            }
+            
+            .game-section h2 {
+                font-size: 2rem;
+            }
+            
+            /* Surprise Box Mobile */
+            .surprise-section {
+                padding: 60px 15px;
+            }
+            
+            .surprise-section h2 {
+                font-size: 2rem;
+            }
+            
+            .surprise-box {
+                width: 200px;
+                height: 160px;
+            }
+            
+            .surprise-message {
+                padding: 20px;
+                font-size: 1.1rem;
+                max-width: 300px;
+                margin: 0 10px;
+            }
+            
+            /* Garden Mobile */
+            .garden-section {
+                padding: 60px 15px;
+            }
+            
+            .garden-section h2 {
+                font-size: 2rem;
+            }
+            
+            .flower-garden {
+                grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+                gap: 20px;
+                padding: 10px;
+            }
+            
+            .flower {
+                font-size: 3rem;
+            }
+            
+            .flower-name {
+                font-size: 1rem;
+            }
+            
+            .flower-message {
+                font-size: 0.8rem;
+            }
+            
+            .flower-compliment {
+                padding: 20px;
+                margin: 0 10px;
+                max-width: 300px;
+            }
+            
+            .compliment-text {
+                font-size: 1.1rem;
+            }
+            
+            /* Timeline Mobile */
+            .timeline {
+                padding: 60px 15px;
+            }
+            
+            .timeline h2 {
+                font-size: 2rem;
+                margin-bottom: 30px;
+            }
+            
+            .timeline-item {
+                flex-direction: column !important;
+                text-align: center;
+                margin-bottom: 30px;
+            }
+            
+            .timeline-icon {
+                width: 60px;
+                height: 60px;
+                margin: 0 auto 15px;
+                font-size: 1.5rem;
+            }
+            
+            .timeline-content {
+                padding: 20px;
+            }
+            
+            /* Final Section Mobile */
+            .final-section h2 {
+                font-size: 2.5rem;
+                margin-bottom: 20px;
+                padding: 0 15px;
+            }
+            
+            .final-section p {
+                font-size: 1.2rem;
+                padding: 0 20px;
+                line-height: 1.6;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .letter-envelope {
+                width: 250px;
+                height: 160px;
+            }
+            
+            .letter-content {
+                padding: 20px 15px;
+                margin: 20px 5px;
+            }
+            
+            .letter-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .letter-btn {
+                width: 200px;
+                max-width: none;
+            }
+            
+            .game-area {
+                height: 250px;
+            }
+            
+            .final-section h2 {
+                font-size: 2rem;
+            }
+            
+            .surprise-box {
+                width: 180px;
+                height: 140px;
+            }
+            
+            .flower-garden {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+
+    <!-- HTML5 Audio Player -->
+    <audio id="audioPlayer" preload="auto" loop>
+        <source src="" type="audio/mpeg">
+        Tarayıcınız HTML5 audio desteği sunmuyor.
+    </audio>
+    
+
+
+    <!-- Falling Hearts -->
+    <div class="falling-hearts" id="fallingHearts"></div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Miraç ❤️ Rümeysa</h1>
+        <p>Sonsuza kadar birlikte 💕</p>
+        <button class="magic-button" onclick="startJourney()">Beni tıkla aşkım 💌</button>
+    </section>
+
+    <!-- Love Reasons Section -->
+    <section class="love-reasons" id="loveReasons">
+        <h2>Neden Seni Seviyorum? 💝</h2>
+        <div class="cards-container">
+            <div class="love-card">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <div class="card-emoji">😊</div>
+                        <div class="card-text">Gülüşün</div>
+                    </div>
+                    <div class="card-back">
+                        <div class="card-emoji">✨</div>
+                        <div class="card-text">Gülüşün dünyamı aydınlatıyor ve her şeyi daha güzel gösteriyor</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="love-card">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <div class="card-emoji">🎵</div>
+                        <div class="card-text">Sesin</div>
+                    </div>
+                    <div class="card-back">
+                        <div class="card-emoji">💕</div>
+                        <div class="card-text">Sesini duyunca tüm dertlerim kayboluyor, kalbim huzur buluyor</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="love-card">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <div class="card-emoji">🌍</div>
+                        <div class="card-text">Varlığın</div>
+                    </div>
+                    <div class="card-back">
+                        <div class="card-emoji">🌟</div>
+                        <div class="card-text">Sen yanımdayken dünya daha güzel, hayat daha anlamlı</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="love-card">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <div class="card-emoji">💭</div>
+                        <div class="card-text">Düşüncelerin</div>
+                    </div>
+                    <div class="card-back">
+                        <div class="card-emoji">🧠</div>
+                        <div class="card-text">Zekice sözlerin ve derin düşüncelerin beni büyülüyor</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="love-card">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <div class="card-emoji">🤗</div>
+                        <div class="card-text">Sevgin</div>
+                    </div>
+                    <div class="card-back">
+                        <div class="card-emoji">💖</div>
+                        <div class="card-text">Bana gösterdiğin sevgi ve ilgi beni en mutlu insan yapıyor</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="love-card">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <div class="card-emoji">🌈</div>
+                        <div class="card-text">Her şeyin</div>
+                    </div>
+                    <div class="card-back">
+                        <div class="card-emoji">💫</div>
+                        <div class="card-text">Sen mükemmelsin Rümeysa, her özelliğinle beni etkiliyor ve sevdiriyorsun</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Surprise Box Section -->
+    <section class="surprise-section">
+        <h2>Sana Sürprizim Var! 🎁</h2>
+        <p class="surprise-subtitle">Hediye kutusuna tıkla ve sürprizi keşfet...</p>
+        <div class="surprise-box" id="surpriseBox" onclick="openSurpriseBox()">
+            <div class="box-base">
+                <div class="box-ribbon"></div>
+            </div>
+            <div class="box-lid">
+                <div class="box-bow">🎀</div>
+            </div>
+            <div class="explosion-hearts" id="explosionHearts"></div>
+            <div class="surprise-content" id="surpriseContent">
+                <div class="surprise-message">
+                    <h3>💖 Özel Mesajım 💖</h3>
+                    <p>Rümeysa, sen benim en büyük sürprizim, hayatımın en değerli hediyesisin! Bu kutudan çıkan kalpler senin için atıyor. Seni çok ama çok seviyorum! 🌟</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Garden Section -->
+    <section class="garden-section">
+        <h2>Senin İçin Çiçek Bahçem 🌹</h2>
+        <p class="garden-subtitle">Her çiçek senin için toplandı, her biri sana özel bir mesaj taşıyor...</p>
+        <div class="flower-garden">
+            <div class="flower-pot" onclick="showCompliment(0)">
+                <span class="flower">🌹</span>
+                <div class="flower-name">Kırmızı Gül</div>
+                <div class="flower-message">Aşkın simgesi</div>
+            </div>
+            
+            <div class="flower-pot" onclick="showCompliment(1)">
+                <span class="flower">🌺</span>
+                <div class="flower-name">Hibiskus</div>
+                <div class="flower-message">Güzelliğin için</div>
+            </div>
+            
+            <div class="flower-pot" onclick="showCompliment(2)">
+                <span class="flower">🌻</span>
+                <div class="flower-name">Ayçiçeği</div>
+                <div class="flower-message">Işığın için</div>
+            </div>
+            
+            <div class="flower-pot" onclick="showCompliment(3)">
+                <span class="flower">🌷</span>
+                <div class="flower-name">Lale</div>
+                <div class="flower-message">Zarafetin için</div>
+            </div>
+            
+            <div class="flower-pot" onclick="showCompliment(4)">
+                <span class="flower">🌸</span>
+                <div class="flower-name">Kiraz Çiçeği</div>
+                <div class="flower-message">Saflığın için</div>
+            </div>
+            
+            <div class="flower-pot" onclick="showCompliment(5)">
+                <span class="flower">💐</span>
+                <div class="flower-name">Buket</div>
+                <div class="flower-message">Hepsini birden</div>
+            </div>
+            
+            <div class="flower-pot" onclick="showCompliment(6)">
+                <span class="flower">🌼</span>
+                <div class="flower-name">Papatya</div>
+                <div class="flower-message">Masumiyetin için</div>
+            </div>
+            
+            <div class="flower-pot" onclick="showCompliment(7)">
+                <span class="flower">🥀</span>
+                <div class="flower-name">Solmaz Gül</div>
+                <div class="flower-message">Sonsuz aşkım için</div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Love Letters Section -->
+    <section class="love-letters">
+        <div class="floating-hearts" id="floatingHearts"></div>
+        <h2>Bal Surata Sevgi Mektuplarım 💌</h2>
+        <p style="margin-bottom: 30px; font-size: 1.1rem; color: #666;">Her gün senin için yazdığım mektuplardan biri...</p>
+        
+        <div class="letter-container">
+            <div class="letter-envelope" id="letterEnvelope">
+                <div class="envelope-flap"></div>
+                <div class="envelope-heart">💌</div>
+            </div>
+            
+            <div class="letter-content" id="letterContent" onclick="handleLetterClick()" style="cursor: pointer;">
+                <div class="letter-date" id="letterDate"></div>
+                <div class="letter-text" id="letterText"></div>
+                <div class="letter-signature">Sonsuz sevgimle,<br>💖 Miraç</div>
+            </div>
+            
+            <div class="letter-buttons">
+                <button class="letter-btn" onclick="openLetter()">
+                    <span id="letterBtnText">Mektubu Aç 💌</span>
+                </button>
+                <button class="letter-btn" onclick="getRandomLetter()">Başka Mektup 💕</button>
+                <button class="letter-btn" onclick="getSpecialLetter()">Özel Mektup ✨</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Game Section -->
+    <section class="game-section">
+        <h2>Kalbi Yakala Oyunu 🎮</h2>
+        <p style="margin-bottom: 20px; font-size: 1.1rem; color: #666;">Düşen kalpleri yakala ve tatlı mesajları gör! 💕</p>
+        <div class="game-area" id="gameArea">
+            <div class="game-message" id="gameMessage"></div>
+        </div>
+        <div class="game-stats">
+            <span>Yakalanan Kalpler: <span class="score" id="score">0</span></span>
+            <button class="magic-button" onclick="startGame()" style="margin-left: 20px; padding: 10px 20px; font-size: 1rem;">Oyunu Başlat 🎯</button>
+        </div>
+    </section>
+
+    <!-- Timeline Section -->
+    <section class="timeline">
+        <h2>Bizim Hikayemiz 💫</h2>
+        <div class="timeline-item">
+            <div class="timeline-icon">💬</div>
+            <div class="timeline-content">
+                <h3>İlk Tanışma</h3>
+                <p>O gün seni tanıdım ve hayatım değişti. Kalbimde bir şeyler kıpırdandı...</p>
+            </div>
+        </div>
+        
+        <div class="timeline-item">
+            <div class="timeline-icon">📱</div>
+            <div class="timeline-content">
+                <h3>İlk Sohbetler</h3>
+                <p>Saatlerce konuşmaya başladık. Her mesajın beni daha çok etkiliyordu...</p>
+            </div>
+        </div>
+        
+        <div class="timeline-item">
+            <div class="timeline-icon">❤️</div>
+            <div class="timeline-content">
+                <h3>Aşık Olma</h3>
+                <p>Artık kendimi kandıramıyordum. Seni sevdiğimi anladım...</p>
+            </div>
+        </div>
+        
+        <div class="timeline-item">
+            <div class="timeline-icon">🌟</div>
+            <div class="timeline-content">
+                <h3>Bu Site</h3>
+                <p>Sana olan sevgimi göstermek için bu siteyi hazırladım...</p>
+            </div>
+        </div>
+        
+        <div class="timeline-item">
+            <div class="timeline-icon">🔮</div>
+            <div class="timeline-content">
+                <h3>Gelecek (Çok Yakında 😍)</h3>
+                <p>İlk buluşmamız, birlikte geçireceğimiz güzel anlar... Daha çok güzel şey bizi bekliyor!</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final Section -->
+    <section class="final-section">
+        <div class="stars" id="stars"></div>
+        <h2>Rümeysa, seni çok seviyorum 💞</h2>
+        <p>Bu siteyi senin için hazırladım. Sen benim en değerli aşkımsın, hayatımın anlamısın. Her gün seni biraz daha çok seviyorum ve seninle bir gelecek hayal ediyorum. Miraç'ın kalbi sadece senin için atıyor... 💖</p>
+    </section>
+
+    <script>
+        // Variables
+        let gameActive = false;
+        let score = 0;
+        let gameHearts = [];
+        let gameInterval;
+        let letterOpened = false;
+        let audioPlayer = null; // HTML5 Audio Player için global değişken
+        
+        const loveMessages = [
+            "Bir kalbimi daha yakaladın 💖",
+            "Her kalbim senin için 💘",
+            "Aşkım büyüyor ❤️",
+            "Sen harikasın Rümeysa! 🌟",
+            "Seni çok seviyorum 💕",
+            "Mükemmelsin aşkım 😍",
+            "Kalbim seninle dolu 💓",
+            "Sen benim her şeyimsin 💫",
+            "Her gece sesinle uyumak istiyorum 💖",
+            "Bal suratlım seni seviyorum😘",
+            "Sonsuza kadar seninle olmak istiyorum 💍",
+            "Seninle her şey daha güzel 🌈",
+            "Kalbim sana ait 💝",
+            "Seninle her an bir macera 🎢",
+            "Birlikte kurduğumuz hayaller 💕",
+            ""
+        ];
+
+
+        let isPlaying = false;
+        let currentSong = 0;
+        let songs = []; // Dinamik olarak yüklenecek
+        const supportedFormats = ['.mp3', '.wav', '.ogg', '.m4a', '.aac'];
+        
+        // Music klasöründeki dosyaları otomatik bul
+        async function loadMusicFiles() {
+            console.log('🎵 Music klasöründeki dosyalar aranıyor...');
+            
+            try {
+                // Sadece mevcut olan song1-song7 dosyalarını kontrol et
+                const commonNames = [
+                    'song1.mp3', 'song2.mp3', 'song3.mp3', 'song4.mp3', 'song5.mp3', 'song6.mp3', 'song7.mp3'
+                ];
+                
+                const foundSongs = [];
+                
+                for (const filename of commonNames) {
+                    try {
+                        const response = await fetch(`./music/${filename}`, { method: 'HEAD' });
+                        if (response.ok) {
+                            foundSongs.push({
+                                title: `Şarkı ${filename.replace('song', '').replace('.mp3', '')}`, // song1 -> Şarkı 1
+                                artist: "Sevgili Şarkıcı",
+                                message: "Bu şarkı özellikle senin için seçildi ❤️",
+                                audioFile: `./music/${filename}`,
+                                filename: filename
+                            });
+                            console.log('✅ Bulundu:', filename);
+                        }
+                    } catch (error) {
+                        // Dosya bulunamadı, devam et
+                        console.log('❌ Dosya bulunamadı:', filename);
+                    }
+                }
+                
+                if (foundSongs.length === 0) {
+                    console.warn('⚠️ Music klasöründe hiç dosya bulunamadı!');
+                    songs = [];
+                } else {
+                    songs = foundSongs;
+                    // Rastgele karıştır
+                    shuffleSongs();
+                }
+                
+                console.log(`🎵 Toplam ${songs.length} şarkı bulundu:`, songs.map(s => s.filename || s.title));
+                return songs;
+                
+            } catch (error) {
+                console.error('❌ Music dosyaları yüklenirken hata:', error);
+                songs = [];
+                return [];
+            }
+        }
+
+        // HTML5 Audio Player Functions - Basit ve Güvenilir
+        async function initializeAudioPlayer() {
+            console.log('🎵 Audio player başlatılıyor...');
+            
+            audioPlayer = document.getElementById('audioPlayer');
+            if (!audioPlayer) {
+                console.error('❌ Audio player bulunamadı!');
+                return false;
+            }
+            
+            // Önce music dosyalarını yükle
+            await loadMusicFiles();
+            
+            if (songs.length === 0) {
+                console.error('❌ Çalınacak şarkı bulunamadı!');
+                return false;
+            }
+            
+            // Audio event listeners
+            audioPlayer.addEventListener('ended', () => {
+                nextSong();
+            });
+            
+            audioPlayer.addEventListener('play', () => {
+                isPlaying = true;
+                console.log('Müzik çalıyor:', songs[currentSong].title);
+            });
+            
+            audioPlayer.addEventListener('pause', () => {
+                isPlaying = false;
+                console.log('Müzik durduruldu');
+            });
+            
+            audioPlayer.addEventListener('error', (e) => {
+                console.error('🚫 Audio yükleme hatası:', e);
+                console.error('🚫 Hata detayları:', audioPlayer.error);
+                if (audioPlayer.error) {
+                    switch(audioPlayer.error.code) {
+                        case 1:
+                            console.error('MEDIA_ERR_ABORTED: Kullanıcı tarafından iptal edildi');
+                            break;
+                        case 2:
+                            console.error('MEDIA_ERR_NETWORK: Ağ hatası');
+                            break;
+                        case 3:
+                            console.error('MEDIA_ERR_DECODE: Çözme hatası');
+                            break;
+                        case 4:
+                            console.error('MEDIA_ERR_SRC_NOT_SUPPORTED: Desteklenmeyen format veya dosya bulunamadı');
+                            console.error('🔍 Dosya yolu:', audioPlayer.src);
+                            break;
+                    }
+                }
+                // Hata durumunda sonraki şarkıya geç
+                setTimeout(() => nextSong(), 2000);
+            });
+            
+            // Ses seviyesini ayarla
+            audioPlayer.volume = 0.3; // %30 ses seviyesi
+            
+            // İlk şarkıyı yükle
+            loadCurrentSong();
+            
+            // Otomatik çalmayı dene (kullanıcı etkileşimi gerekebilir)
+            setTimeout(() => {
+                startAutoMusic();
+            }, 2000);
+            
+            console.log('Audio player başarıyla başlatıldı!');
+            return true;
+        }
+        
+        function loadCurrentSong() {
+            console.log('🎵 loadCurrentSong çağrıldı - currentSong index:', currentSong);
+            
+            if (!audioPlayer) {
+                console.error('❌ Audio player bulunamadı!');
+                return;
+            }
+            
+            if (!songs[currentSong]) {
+                console.error('❌ Şarkı bulunamadı! Index:', currentSong, 'Toplam şarkı:', songs.length);
+                console.error('❌ Songs array:', songs);
+                return;
+            }
+            
+            const song = songs[currentSong];
+            console.log('🎵 Şarkı yükleniyor:', song.title, '-', song.audioFile);
+            console.log('🎵 Audio src ayarlanıyor:', song.audioFile);
+            
+            audioPlayer.src = song.audioFile;
+            console.log('🎵 Audio player src:', audioPlayer.src);
+            
+            // Dosya varlığını test et
+            fetch(song.audioFile, {method: 'HEAD'})
+                .then(response => {
+                    if (response.ok) {
+                        console.log('✅ Dosya mevcut ve erişilebilir');
+                        console.log('📋 Response status:', response.status);
+                        console.log('📋 Content-Type:', response.headers.get('content-type'));
+                    } else {
+                        console.error('❌ Dosya bulunamadı - HTTP Status:', response.status);
+                    }
+                })
+                .catch(err => {
+                    console.error('❌ Dosya erişim hatası:', err);
+                });
+            
+            audioPlayer.load(); // Force reload
+            console.log('✅ Audio load() çağrıldı. Şarkı:', song.title);
+        }
+        
+        function startAutoMusic() {
+            if (audioPlayer) {
+                console.log('Müzik başlatmaya çalışılıyor...');
+                const playPromise = audioPlayer.play();
+                if (playPromise !== undefined) {
+                    playPromise.then(() => {
+                        console.log('✅ Otomatik müzik başlatıldı! 🎵');
+                        isPlaying = true;
+                    }).catch(error => {
+                        console.log('⚠️ Otomatik çalma engellendi (tarayıcı politikası):', error);
+                        console.log('💡 Kullanıcı etkileşimi bekleniyor...');
+                        // Kullanıcı etkileşimi sonrası çalmaya çalış
+                        document.addEventListener('click', startMusicOnInteraction, { once: true });
+                        document.addEventListener('touchstart', startMusicOnInteraction, { once: true });
+                        
+                        // Kullanıcıya bilgi ver
+                        setTimeout(() => {
+                            console.log('🎵 Müzik için sayfaya tıklayın!');
+                        }, 1000);
+                    });
+                }
+            } else {
+                console.error('❌ Audio player bulunamadı!');
+            }
+        }
+        
+        function startMusicOnInteraction() {
+            if (audioPlayer && !isPlaying) {
+                console.log('👆 Kullanıcı etkileşimi tespit edildi, müzik başlatılıyor...');
+                audioPlayer.play().then(() => {
+                    console.log('✅ Kullanıcı etkileşimi sonrası müzik başlatıldı!');
+                    isPlaying = true;
+                }).catch(error => {
+                    console.error('❌ Müzik başlatma hatası:', error);
+                });
+            }
+        }
+
+
+
+
+
+
+
+
+
+        function nextSong() {
+            currentSong = (currentSong + 1) % songs.length;
+            loadCurrentSong();
+            
+            // Eğer müzik çalıyorsa yeni şarkıyı da çal
+            if (isPlaying && audioPlayer) {
+                const playPromise = audioPlayer.play();
+                if (playPromise !== undefined) {
+                    playPromise.catch(error => {
+                        console.log('Otomatik çalma hatası:', error);
+                    });
+                }
+            }
+        }
+
+        function prevSong() {
+            currentSong = (currentSong - 1 + songs.length) % songs.length;
+            loadCurrentSong();
+            
+            // Eğer müzik çalıyorsa yeni şarkıyı da çal
+            if (isPlaying && audioPlayer) {
+                const playPromise = audioPlayer.play();
+                if (playPromise !== undefined) {
+                    playPromise.catch(error => {
+                        console.log('Otomatik çalma hatası:', error);
+                    });
+                }
+            }
+        }
+
+
+
+        // Shuffle songs for variety
+        function shuffleSongs() {
+            if (songs.length === 0) {
+                console.warn('⚠️ Karıştırılacak şarkı yok!');
+                return;
+            }
+            
+            console.log('🔀 Şarkılar karıştırılıyor...', songs.length, 'şarkı');
+            
+            // Fisher-Yates shuffle algoritması
+            for (let i = songs.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [songs[i], songs[j]] = [songs[j], songs[i]];
+            }
+            
+            console.log('✅ Şarkılar karıştırıldı!');
+            console.log('🎵 Yeni sıralama:', songs.map(s => s.filename || s.title));
+            
+            // İlk şarkıya dön
+            currentSong = 0;
+        }
+
+        // Sürpriz Kutu Fonksiyonları - Yeni İhtişamlı Kalp Animasyonu
+        function openSurpriseBox() {
+            const surpriseBox = document.getElementById('surpriseBox');
+            
+            // Her tıklamada yeni animasyon başlat
+            surpriseBox.classList.remove('opened');
+            
+            setTimeout(() => {
+                surpriseBox.classList.add('opened');
+                
+                // Ekran kaplayan kalp animasyonu oluştur
+                createFullScreenHeartAnimation();
+            }, 50);
+        }
+
+        function createFullScreenHeartAnimation() {
+            // Overlay oluştur
+            const overlay = document.createElement('div');
+            overlay.className = 'heart-animation-overlay';
+            overlay.style.cssText = `
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100vw;
+                height: 100vh;
+                background: linear-gradient(135deg, rgba(255, 20, 147, 0.1), rgba(255, 105, 180, 0.2));
+                backdrop-filter: blur(10px);
+                z-index: 10000;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+            `;
+
+            // Büyük kalp oluştur - boyutu küçülttüm
+            const bigHeart = document.createElement('div');
+            bigHeart.innerHTML = '❤️';
+            bigHeart.className = 'big-animated-heart';
+            bigHeart.style.cssText = `
+                font-size: 50px;
+                opacity: 0;
+                transform: scale(0);
+                animation: growHeart 2s ease-out forwards;
+                text-shadow: 0 0 20px rgba(255, 20, 147, 0.6);
+                filter: drop-shadow(0 0 15px rgba(255, 105, 180, 0.4));
+                max-width: 300px;
+                max-height: 300px;
+            `;
+
+            overlay.appendChild(bigHeart);
+            document.body.appendChild(overlay);
+
+            // 2 saniye sonra patlama efekti
+            setTimeout(() => {
+                createHeartExplosion(overlay);
+            }, 2000);
+
+            // Overlay'e tıklayınca kapan
+            overlay.addEventListener('click', () => {
+                overlay.remove();
+            });
+        }
+
+        function createHeartExplosion(overlay) {
+            const bigHeart = overlay.querySelector('.big-animated-heart');
+            
+            // Büyük kalbi gizle ve patlat
+            bigHeart.style.animation = 'explodeHeart 0.8s ease-out forwards';
+            
+            // Yazıyı göster
+            setTimeout(() => {
+                bigHeart.innerHTML = '';
+                
+                // Sevgi mesajı oluştur - çok daha güzel
+                const loveMessage = document.createElement('div');
+                loveMessage.className = 'love-explosion-message';
+                loveMessage.innerHTML = `
+                    <div class="heart-shower">💖💕💘💗💝💖💕💘</div>
+                    <div class="main-love-text" style="animation: heartbeat 1.5s ease infinite;">SENİ SEVİYORUM</div>
+                    <div class="sub-love-text" style="animation: glow 2s ease infinite alternate;">RÜMEYSA 💕</div>
+                    <div class="love-details" style="animation: fadeInScale 1s ease 0.5s both;">
+                        Sen benim hayatımın en güzel sürprizisin!<br>
+                        Her günüm seninle daha anlamlı, her anım daha güzel.<br>
+                        🌹 Sonsuza kadar seninle olmak istiyorum 🌹
+                    </div>
+                    <div class="floating-hearts-bg">
+                        <span class="floating-heart-bg">❤️</span>
+                        <span class="floating-heart-bg">💕</span>
+                        <span class="floating-heart-bg">💖</span>
+                        <span class="floating-heart-bg">💗</span>
+                        <span class="floating-heart-bg">💘</span>
+                    </div>
+                    <div class="close-hint" style="animation: pulse 2s ease infinite;">× Kapatmak için tıkla</div>
+                `;
+                
+                loveMessage.style.cssText = `
+                    text-align: center;
+                    color: white;
+                    opacity: 0;
+                    transform: scale(0.8);
+                    animation: showLoveMessage 1.2s ease-out forwards;
+                    position: relative;
+                    z-index: 10002;
+                `;
+                
+                overlay.appendChild(loveMessage);
+                
+                // Küçük kalpler salası - daha çok ve renkli
+                createMiniHeartRain(overlay);
+                
+                // Arka plan kalp animasyonları
+                setTimeout(() => {
+                    const floatingHearts = loveMessage.querySelectorAll('.floating-heart-bg');
+                    floatingHearts.forEach((heart, index) => {
+                        heart.style.cssText = `
+                            position: absolute;
+                            font-size: 2rem;
+                            animation: float 3s ease-in-out ${index * 0.5}s infinite;
+                            left: ${20 + index * 15}%;
+                            top: ${30 + (index % 2) * 20}%;
+                            opacity: 0.7;
+                        `;
+                    });
+                }, 500);
+            }, 800);
+        }
+
+        function createMiniHeartRain(overlay) {
+            for (let i = 0; i < 50; i++) {
+                setTimeout(() => {
+                    const miniHeart = document.createElement('div');
+                    const heartTypes = ['💖', '💕', '💝', '💗', '🌹', '⭐', '✨', '💞', '❤️', '💓'];
+                    miniHeart.innerHTML = heartTypes[Math.floor(Math.random() * heartTypes.length)];
+                    miniHeart.style.cssText = `
+                        position: absolute;
+                        font-size: ${Math.random() * 25 + 15}px;
+                        left: ${Math.random() * 100}%;
+                        top: -50px;
+                        animation: heartRainFall ${Math.random() * 4 + 2}s linear forwards;
+                        pointer-events: none;
+                        z-index: 10001;
+                        transform: rotate(${Math.random() * 360}deg);
+                    `;
+                    overlay.appendChild(miniHeart);
+                    
+                    setTimeout(() => {
+                        if (miniHeart.parentNode) {
+                            miniHeart.remove();
+                        }
+                    }, 6000);
+                }, i * 80);
+            }
+        }
+
+        // Flower Garden Functions
+        const compliments = [
+            "Rümeysa, sen benim hayatımın en güzel çiçeğisin! 🌹 Her sabah seni düşünmek beni mutlu ediyor.",
+            "Gülüşün benim için en güzel müzik, varlığın en büyük hediye! 🌺 Seni çok seviyorum.",
+            "Sen benim güneşimsin, her gün hayatıma ışık getiriyorsun! 🌻 Sensiz hiçbir şey aynı olmazdı.",
+            "Zarafet senin için yaratılmış, güzellik senden öğrenmiş! 🌷 Sen eşsizsin!",
+            "Saflığın ve temizliğin beni her gün şaşırtıyor! 🌸 Sen meleksin benim için.",
+            "Tüm çiçekler senin güzelliğinin yanında sönük kalır! 💐 Sen benim her şeyimsin!",
+            "Masumiyetin kadar güzel, sevgin kadar değerli! 🌼 Seni sonsuza kadar seveceğim.",
+            "Aşkımız asla solmayacak, her geçen gün daha da güçlenecek! 🥀 Sen benim kaderimsin!"
+        ];
+
+        function showCompliment(index) {
+            const flowerNames = ['Kırmızı Gül', 'Hibiskus', 'Ayçiçeği', 'Lale', 'Kiraz Çiçeği', 'Buket', 'Papatya', 'Solmaz Gül'];
+            const flowerIcons = ['🌹', '🌺', '🌻', '🌷', '🌸', '💐', '🌼', '🥀'];
+            
+            // Yeni popup oluştur
+            const popup = document.createElement('div');
+            popup.className = 'flower-compliment-new';
+            popup.innerHTML = `
+                <div class="compliment-overlay">
+                    <div class="compliment-card">
+                        <div class="compliment-header">
+                            <span class="flower-icon-large">${flowerIcons[index]}</span>
+                            <div class="flower-title">${flowerNames[index]}</div>
+                            <button class="close-btn" onclick="closeFlowerPopup(this)">×</button>
+                        </div>
+                        <div class="compliment-body">
+                            <p class="compliment-text">${compliments[index]}</p>
+                        </div>
+                        <div class="compliment-footer">
+                            <div class="love-signature">💕 Miraç'tan sonsuz sevgiyle 💕</div>
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            document.body.appendChild(popup);
+            
+            // Show popup
+            setTimeout(() => {
+                popup.classList.add('show');
+            }, 10);
+            
+            // Close on overlay click
+            popup.querySelector('.compliment-overlay').addEventListener('click', (e) => {
+                if (e.target === popup.querySelector('.compliment-overlay')) {
+                    closeFlowerPopup(popup);
+                }
+            });
+        }
+        
+        function closeFlowerPopup(element) {
+            const popup = element.closest ? element.closest('.flower-compliment-new') : element;
+            popup.classList.remove('show');
+            
+            setTimeout(() => {
+                if (popup.parentNode) {
+                    popup.remove();
+                }
+            }, 300);
+        }
+
+
+
+        // Love Letters Database (30 günlük otomatik sistem)
+        const loveLetters = [
+            {
+                text: "Canım Rümeysa,\n\nBu sabah uyandığımda ilk aklıma gelen sen oldun. Gözlerimi açar açmaz senin güzel yüzün geldi aklıma. Her sabah böyle başlamak istiyorum hayatıma... Seninle birlikte uyandığım sabahlar hayal ediyorum. Kahvemi hazırlarken sen de yanımda olacaksın, güne birlikte başlayacağız.\n\nSeni çok özlüyorum ve her geçen gün biraz daha çok seviyorum. Sen benim güneşimsin Rümeysa, her şeyi aydınlatıyorsun."
+            },
+            {
+                text: "Sevgili Rümeysa,\n\nBugün yürürken bir çiçek gördüm ve hemen seni düşündüm. O çiçek ne kadar güzelse sen de o kadar, hatta daha da güzelsin. Doğanın en güzel hali bile senin yanında sönük kalıyor.\n\nSeninle geçirmek istediğim çok şey var. Parkta yürümek, çiçekleri koklamak, bulutlara bakmak... Her anı seninle yaşamak istiyorum. Sen hayatıma anlam katıyorsun, her şeyi daha güzel görmemi sağlıyorsun."
+            },
+            {
+                text: "En güzel Rümeysa'm,\n\nGece yıldızlara bakıyordum ve sen geldin aklıma. Yıldızlar ne kadar parlaksa senin gözlerin de o kadar parlak. Ama sen onlardan çok daha özelsin, çünkü sen gerçeksin ve hayatımdasın.\n\nSeninle geceleri yıldızları seyretmek, ay ışığında yürümek, sessizce sarılarak uyumak... Bunların hepsi benim için cennet gibi geliyor. Sen benim rüyalarımın prensesisin."
+            },
+            {
+                text: "Kalbimin sahibi Rümeysa,\n\nBazen kendime soruyorum, seni nasıl bu kadar çok sevebiliyorum? Sonra anlıyorum ki aşk işte böyle bir şey. Sen öyle güzelsin ki, öyle özelsin ki, seni sevmemek imkansız.\n\nHer gün seni biraz daha tanıyorum ve her seferinde yeniden aşık oluyorum. Senin güzelliğin sadece dışarıdan değil, kalbinden geliyor. İşte bu yüzden seni bu kadar çok seviyorum."
+            },
+            {
+                text: "Canım benim,\n\nYazdığım her mektup aslında kalbimin sana söyledikleri. Kelimeler bazen yetersiz kalıyor ama yine de sana olan sevgimi anlatmaya çalışıyorum.\n\nSen benim hayatımın en güzel hediyesisin. Seni tanımadan önce eksik olan parçamı bulmuşum gibi hissediyorum. Artık kendimi tam hissediyorum çünkü sen varsın. Seninle geleceğimizi hayal ediyorum ve çok mutluyum."
+            },
+            {
+                text: "Sevgili aşkım,\n\nBu mektubu yazarken kalbim hızla atıyor. Seni her düşündüğümde böyle oluyor. Sen benim nabzımı yükselten, mutluluğumu arttıran, hayatıma renk katan tek kişisin.\n\nSeninle olmak istiyorum, her anımı seninle paylaşmak istiyorum. Gülmek, ağlamak, şarkı söylemek, dans etmek... Her şeyi seninle yapmak istiyorum. Sen benim en büyük aşkımsın Rümeysa."
+            },
+            {
+                text: "Tatlı Rümeysa'm,\n\nBugün bir kuş şarkısı duydum ve senin sesini hatırladım. Sen konuştuğunda sanki melekler şarkı söylüyor gibi. Sesin benim için en güzel müzik.\n\nSeninle dans etmeyi hayal ediyorum. Yavaş bir müzik eşliğinde, sadece ikimiz... Kulağına sevdiğimi fısıldayarak, seni kollarımda hissederek. Bu rüya bir gün gerçek olacak, eminim."
+            },
+            {
+                text: "Güzel kalplim,\n\nBahar geldi ve her şey yeniden doğuyor. Tıpkı sen hayatıma girdiğinde benim yeniden doğmuş hissetmem gibi. Sen benim ikinci şansım, yeni hayatımın başlangıcısın.\n\nSeninle baharda yürümek, çiçek toplamak, picnik yapmak istiyorum. Her mevsimi seninle yaşamak istiyorum. Kış soğuğunda seni ısıtmak, yaz sıcağında gölge olmak..."
+            },
+            {
+                text: "Hayatımın anlamı Rümeysa,\n\nSeni tanımadan önce hayat sadece geçip gidiyordu. Şimdi ise her gün bir macera, her an bir hediye. Sen hayatıma renk, anlam ve sevinç kattın.\n\nGeçen gece rüyamda seninleydin. Çok mutluydum, uyanmak istemedim. Umarım bir gün bu rüya gerçek olur ve seninle gerçek hayatta da o kadar mutlu olurum."
+            },
+            {
+                text: "Sevgilim Rümeysa,\n\nDeniz kenarında yürürken seni düşündüm. Dalgalar sahile vuruyor, ben de senin kalbine vurmak istiyorum. Denizin sonsuzluğu gibi seni sonsuzca sevmek istiyorum.\n\nSeninle sahilde koşmak, ellerimizde kumları hissetmek, gün batımını izlemek... Bunların hepsi hayal değil, yakında gerçek olacak. Sen benim denizim, sakinliğim ve fırtınamsın aynı zamanda."
+            },
+            {
+                text: "Prensesim,\n\nBir masal okudum ve sen geldin aklıma. Çünkü sen gerçek hayatın prensesisin, benim prensesim. Seni kurtarmak için ejder öldürmeye hazırım, senin için her şeyi yapmaya hazırım.\n\nSeninle masal gibi bir aşk yaşamak istiyorum. Mutlu son bizim olacak, bundan eminim. Sen benim masalımın en güzel karakterisin."
+            },
+            {
+                text: "Canım Rümeysa,\n\nBir yıldız kaydı gece, dilek tuttum. Ne dilediğimi biliyor musun? Seni mutlu etmeyi, seni güldürmeyi, hayatını güzelleştirmeyi diledim.\n\nSen benim yıldızımsın, karanlık gecelerimde bana ışık olan. Seninle her gece yıldızlara bakmak, meteorları saymak, ay ışığında yürümek istiyorum."
+            },
+            {
+                text: "Aşkım,\n\nSabah kahvemi içerken seni hayal ettim. Karşımda oturuyor, gülümseyerek bana bakıyordun. O kadar gerçekçiydi ki, elimi uzatıp seni tutmak istedim.\n\nSeninle kahve içmek, sohbet etmek, birlikte güne başlamak... Bunlar benim en büyük hayallerim. Bir gün mutlaka gerçekleşecek."
+            },
+            {
+                text: "Tatlım,\n\nBir şarkı duydum radyoda, sözleri tam seni anlatıyordu. 'Sen benim dünyamsın' diyordu. Ne kadar da doğru... Sen gerçekten benim dünyamsın.\n\nSeninle dans etmek istiyorum o şarkı eşliğinde. Seni kollarımda hissetmek, parfümünü koklamak, kalbinin atışını duymak istiyorum."
+            },
+            {
+                text: "Güzel Rümeysa,\n\nBir kitap okudum aşk hakkında, ama hiçbir yazar bizim aşkımızı anlatamaz. Çünkü bizimki çok özel, çok samimi, çok güzel.\n\nSenin için şiirler yazmak istiyorum, ama kelimeler kifayetsiz. Senin güzelliğini anlatacak kelime henüz icat edilmemiş. Sen eşsizsin."
+            },
+            {
+                text: "Hayatım,\n\nSeni her gün biraz daha çok seviyorum. Bu nasıl mümkün diye soruyorum kendi kendime. Ama aşkın sınırı yok ki... Sen de sınırsız seviyorsun.\n\nBir ömür seni sevmek istiyorum. Her günü, her saati, her dakikayı seninle paylaşmak istiyorum. Sen benim sonsuza kadar aşkımsın."
+            },
+            {
+                text: "Sevgili Rümeysa,\n\nRüzgar esti ve saçlarımı karıştırdı. Senin ellerinin dokunuşunu hayal ettim. Ne zaman dokunacaksın bana? Ne zaman elimde elini hissedeceğim?\n\nSabırsızlıkla bekliyorum o anı. Senin dokunuşun beni iyileştirecek, mutlu edecek, yaşama bağlayacak."
+            },
+            {
+                text: "Canım,\n\nBir çocuk gülüyordu parkta, senin gülüşünü hatırladım. O kadar masum, o kadar temiz ki gülüşün... Kalbimi eritiyor.\n\nSeninle çocuk gibi gülmek, eğlenmek, oyun oynamak istiyorum. Sen benim iç çocuğumu uyandırıyorsun, hayatı tekrar eğlenceli hale getiriyorsun."
+            },
+            {
+                text: "Aşkım Rümeysa,\n\nBir gökkuşağı gördüm bugün, renkli ve güzeldi. Ama sen daha güzelsin, sen benim hayatımın gökkuşağısın.\n\nSenin sayende hayatım renkli. Her gün farklı bir renk katıyorsun hayatıma. Sen olmadan her şey siyah beyaz idi."
+            },
+            {
+                text: "Tatlı aşkım,\n\nBir mum yandı akşam, ışığı senin yüzünü aydınlattı hayal gücümde. Ne kadar da güzel görünüyordun...\n\nSeninle mum ışığında yemek yemek, romantik bir gece geçirmek istiyorum. Gözlerinin içine bakarak, seni sevdiğimi tekrar tekrar söyleyerek."
+            },
+            {
+                text: "Güzelim,\n\nBir kedi miyavladı, senin sesini özlediğimi hatırlattı. Sesini duymak için neler vermem... Telefonda bile olsa konuşmak istiyorum seninle.\n\nSaatlerce konuşabiliriz, hiç sıkılmayız. Sen konuştukça ben daha çok aşık oluyorum sana."
+            },
+            {
+                text: "Sevgilim,\n\nBir ağaç gördüm, dalları göğe uzanmış. Ben de sana uzanmak istiyorum böyle... Seni kucaklamak, sarılmak, hiç bırakmamak istiyorum.\n\nSen benim ağacımsın, ben de senin dalınım. Birlikte büyüyeceğiz, birlikte güçleneceğiz."
+            },
+            {
+                text: "Canım Rümeysa,\n\nBir kelebek uçtu, özgür ve güzeldi. Sen de öylesin, özgür bir ruh... Ama umarım benimle uçmayı da istersin.\n\nSeninle uçmak istiyorum, hayallerin peşinden koşmak istiyorum. Sen nereye gidersen ben de oradayım."
+            },
+            {
+                text: "Hayatımın aşkı,\n\nBir yağmur yağdı, temizledi her şeyi. Sen de öylesin, hayatıma girdiğinde her şeyi temizledin, güzelleştirdin.\n\nSeninle yağmurda yürümek, ıslanmak, sonra sıcak bir yerde kurulanmak istiyorum. Her anım seninle güzel."
+            },
+            {
+                text: "Prensesim Rümeysa,\n\nBir kraliçe gördüm rüyamda, sen miydin acaba? Çünkü sen benim kraliçemsin, kalbimin tek hakimi.\n\nSana layık olmak için kendimi geliştiriyorum her gün. Sen en iyisini hak ediyorsun, ben de sana en iyisini vermek istiyorum."
+            },
+            {
+                text: "Sevgili aşkım,\n\nBir melek gördüm, ama sen daha güzeldin. Çünkü sen gerçek bir meleksin, benim melenim.\n\nSenin kanatlarınla uçmak istiyorum cennete... Ya da sen neredeysen orası zaten cennet."
+            },
+            {
+                text: "Canım benim,\n\nSonbahar geldi, yapraklar dökülüyor. Ama bizim aşkımız hiç solmayacak, her mevsim taze kalacak.\n\nSeninle sonbaharı yaşamak istiyorum. Yaprakların üstünde yürümek, sıcak çay içmek, birbirimize sarılmak..."
+            },
+            {
+                text: "Tatlı Rümeysa'm,\n\nKış geliyor, soğuklar başlıyor. Ama sen yanımda olduğun sürece hiç üşümem. Sen benim ateşimsin, sıcaklığımsın.\n\nSeninle kışı geçirmek istiyorum. Kar altında yürümek, soba başında oturmak, sıcak çikolata içmek..."
+            },
+            {
+                text: "Aşkım,\n\nYeni yıl geliyor, yeni başlangıçlar... Ama sen her günüm için yeni bir başlangıçsın zaten.\n\nYeni yılda seninle olmak istiyorum. Beraber dilek tutmak, beraber kutlamak, beraber umut etmek... Her şeyi beraber."
+            },
+            {
+                text: "Sevgilim Rümeysa,\n\n30 gün boyunca sana mektup yazdım. Her gün farklı bir şey söyledim ama hepsi aynı şeyi anlatıyor: Seni çok seviyorum.\n\nBu mektuplar bitmiyor aslında, çünkü sana olan sevgim de bitmiyor. Her gün yeni bir mektubum olacak, her gün seni yeniden seveceğim. Sen benim sonsuza kadar aşkımsın Rümeysa. 💖"
+            }
+        ];
+
+        const specialLetters = [
+            {
+                text: "En Özel Rümeysa'm,\n\nBu mektup sadece senin için, özel günler için saklanıyordu. Bugün sana söylemek istiyorum ki, sen benim hayatımın en değerli kişisisin.\n\nBelki henüz tanışalı çok olmadı ama kalbim seni çoktan seçti. Sen benim ruh eşimsin, yarım parçamın tamamıyorsın. Seninle bir ömür geçirmek istiyorum.\n\nRümeysa, benimle bir gelecek kurar mısın? Elimi tutup bu yolculuğa çıkar mısın benimle? Seni sonsuza kadar sevmek istiyorum. ❤️\n\nNot: Bu mektup kalbimden çıkan en samimi sözler. Seni çok ama çok seviyorum.",
+            },
+            {
+                text: "Benim güzel prensesim,\n\nEğer bu mektubu okuyorsan, bil ki bu sadece senin için hazırlandı. Sen çok özel biri olduğun için özel muamele görmeyi hak ediyorsun.\n\nHer gece yatmadan önce seni düşünüyorum. Rüyalarımda sen varsın, uyandığımda ilk aklıma gelen sen oluyorsun. Gün boyunca yaptığım her şeyde senin varlığını hissediyorum.\n\nBu sadece hayal değil, bu gerçek bir aşk. Sana olan duygularım o kadar derin ki, bazen kendim bile şaşırıyorum. Sen benim kalbimin kraliçesisin! 👑💖",
+            }
+        ];
+
+        let currentLetterIndex = 0;
+
+        // Love Letters Functions (Güncellenmiş)
+        function handleLetterClick() {
+            if (!letterOpened) {
+                openLetter();
+            }
+        }
+        
+        function openLetter() {
+            const buttonText = document.getElementById('letterBtnText');
+            
+            if (!letterOpened) {
+                const envelope = document.getElementById('letterEnvelope');
+                const content = document.getElementById('letterContent');
+                const dateDiv = document.getElementById('letterDate');
+                
+                // Open envelope animation
+                envelope.classList.add('opened');
+                buttonText.textContent = 'Mektubu Kapat 📪';
+                
+                // Show content after animation
+                setTimeout(() => {
+                    content.classList.add('visible');
+                    
+                    // Günlük otomatik sistem - HER GÜN OTOMATİK YENİ MEKTUP!
+                    const today = new Date();
+                    const dayOfYear = Math.floor((today - new Date(today.getFullYear(), 0, 0)) / (1000 * 60 * 60 * 24));
+                    currentLetterIndex = dayOfYear % loveLetters.length; // Otomatik döngü
+                    
+                    const options = { year: 'numeric', month: 'long', day: 'numeric' };
+                    dateDiv.innerHTML = `📅 ${today.toLocaleDateString('tr-TR', options)}<br><small style="opacity: 0.7;">Günün Özel Mektubu (${currentLetterIndex + 1}/${loveLetters.length})</small>`;
+                    
+                    // Set letter content
+                    document.getElementById('letterText').innerHTML = 
+                        loveLetters[currentLetterIndex].text.replace(/\n/g, '<br><br>');
+                    
+                    // Start floating hearts
+                    startFloatingHearts();
+                    
+                }, 500);
+                
+                letterOpened = true;
+            } else {
+                // Mektup açıksa kapat
+                closeLetter();
+                buttonText.textContent = 'Mektubu Aç 💌';
+            }
+        }
+
+        function closeLetter() {
+            letterOpened = false;
+            const envelope = document.getElementById('letterEnvelope');
+            const content = document.getElementById('letterContent');
+            
+            // Hide content first
+            content.classList.remove('visible');
+            
+            // Close envelope after content hides
+            setTimeout(() => {
+                envelope.classList.remove('opened');
+                // Reset envelope appearance
+                envelope.style.border = '3px solid #d63384';
+                envelope.querySelector('.envelope-flap').style.background = '#e91e63';
+                envelope.querySelector('.envelope-heart').innerHTML = '💌';
+            }, 300);
+            
+            // Stop floating hearts
+            stopFloatingHearts();
+        }
+
+        function getRandomLetter() {
+            currentLetterIndex = Math.floor(Math.random() * loveLetters.length);
+            resetLetter();
+            
+            setTimeout(() => {
+                openLetter();
+            }, 200);
+        }
+
+        function getSpecialLetter() {
+            // Choose a random special letter
+            const specialIndex = Math.floor(Math.random() * specialLetters.length);
+            
+            resetLetter();
+            
+            setTimeout(() => {
+                const envelope = document.getElementById('letterEnvelope');
+                const content = document.getElementById('letterContent');
+                const dateDiv = document.getElementById('letterDate');
+                
+                // Special envelope color
+                envelope.style.border = '3px solid gold';
+                envelope.querySelector('.envelope-flap').style.background = 'linear-gradient(45deg, gold, orange)';
+                envelope.querySelector('.envelope-heart').innerHTML = '✨💌✨';
+                
+                // Open envelope
+                envelope.classList.add('opened');
+                
+                setTimeout(() => {
+                    content.classList.add('visible');
+                    content.style.borderLeft = '5px solid gold';
+                    
+                    // Set date
+                    dateDiv.innerHTML = '<strong>🌟 Özel Günler İçin 🌟</strong><br><small style="opacity: 0.7;">Sadece Rümeysa için yazılmış</small>';
+                    
+                    // Set special letter content
+                    document.getElementById('letterText').innerHTML = 
+                        specialLetters[specialIndex].text.replace(/\n/g, '<br><br>');
+                    
+                    // Extra floating hearts for special letter
+                    startFloatingHearts(true);
+                    
+                }, 500);
+                
+                letterOpened = true;
+                
+            }, 200);
+        }
+
+        function resetLetter() {
+            letterOpened = false;
+            const envelope = document.getElementById('letterEnvelope');
+            const content = document.getElementById('letterContent');
+            
+            // Reset envelope
+            envelope.classList.remove('opened');
+            envelope.style.border = '3px solid #d63384';
+            envelope.querySelector('.envelope-flap').style.background = '#e91e63';
+            envelope.querySelector('.envelope-heart').innerHTML = '💌';
+            
+            // Reset content
+            content.classList.remove('visible');
+            content.style.borderLeft = '5px solid #e91e63';
+            
+            // Stop floating hearts
+            stopFloatingHearts();
+        }
+
+        function startFloatingHearts(special = false) {
+            const container = document.getElementById('floatingHearts');
+            const heartCount = special ? 15 : 8;
+            
+            const heartInterval = setInterval(() => {
+                for (let i = 0; i < heartCount; i++) {
+                    setTimeout(() => {
+                        createFloatingHeart(container, special);
+                    }, i * 200);
+                }
+            }, 2000);
+            
+            // Store interval for cleanup
+            container.heartInterval = heartInterval;
+        }
+
+        function createFloatingHeart(container, special = false) {
+            const heart = document.createElement('div');
+            heart.className = 'floating-heart';
+            
+            if (special) {
+                heart.innerHTML = ['✨', '💫', '🌟', '💖', '💝'][Math.floor(Math.random() * 5)];
+                heart.style.fontSize = '2rem';
+            } else {
+                heart.innerHTML = ['💕', '💖', '💗', '💘'][Math.floor(Math.random() * 4)];
+            }
+            
+            heart.style.left = Math.random() * 100 + '%';
+            heart.style.animationDuration = (Math.random() * 2 + 3) + 's';
+            heart.style.animationDelay = Math.random() * 2 + 's';
+            
+            container.appendChild(heart);
+            
+            // Remove after animation
+            setTimeout(() => {
+                if (heart.parentNode) {
+                    heart.remove();
+                }
+            }, 6000);
+        }
+
+        function stopFloatingHearts() {
+            const container = document.getElementById('floatingHearts');
+            if (container.heartInterval) {
+                clearInterval(container.heartInterval);
+                container.heartInterval = null;
+            }
+            
+            // Clear existing hearts
+            container.innerHTML = '';
+        }
+        function createFallingHeart() {
+            const heart = document.createElement('div');
+            heart.className = 'heart';
+            heart.innerHTML = ['💕', '💖', '💗', '💝', '❤️'][Math.floor(Math.random() * 5)];
+            heart.style.left = Math.random() * 100 + '%';
+            heart.style.animationDuration = (Math.random() * 3 + 2) + 's';
+            heart.style.fontSize = (Math.random() * 10 + 15) + 'px';
+            
+            document.getElementById('fallingHearts').appendChild(heart);
+            
+            setTimeout(() => {
+                heart.remove();
+            }, 5000);
+        }
+
+        // Create stars
+        function createStars() {
+            const starsContainer = document.getElementById('stars');
+            for (let i = 0; i < 50; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                star.style.left = Math.random() * 100 + '%';
+                star.style.top = Math.random() * 100 + '%';
+                star.style.width = star.style.height = (Math.random() * 3 + 1) + 'px';
+                star.style.animationDelay = Math.random() * 2 + 's';
+                starsContainer.appendChild(star);
+            }
+        }
+
+        // Start journey function
+        function startJourney() {
+            document.getElementById('loveReasons').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Game functions
+        function startGame() {
+            if (gameActive) return;
+            
+            gameActive = true;
+            score = 0;
+            document.getElementById('score').textContent = score;
+            
+            gameInterval = setInterval(() => {
+                if (gameActive) {
+                    createGameHeart();
+                }
+            }, 1500);
+            
+            // Stop game after 30 seconds
+            setTimeout(() => {
+                stopGame();
+            }, 30000);
+        }
+
+        function createGameHeart() {
+            const gameArea = document.getElementById('gameArea');
+            const heart = document.createElement('div');
+            heart.className = 'game-heart';
+            heart.innerHTML = '💖';
+            heart.style.left = Math.random() * (gameArea.offsetWidth - 40) + 'px';
+            heart.style.animationDuration = (Math.random() * 2 + 3) + 's';
+            
+            heart.addEventListener('click', (e) => {
+                e.preventDefault();
+                catchHeart(heart);
+            });
+            
+            gameArea.appendChild(heart);
+            gameHearts.push(heart);
+            
+            // Remove heart after animation
+            setTimeout(() => {
+                if (heart.parentNode) {
+                    heart.remove();
+                    gameHearts = gameHearts.filter(h => h !== heart);
+                }
+            }, 5000);
+        }
+
+        function catchHeart(heart) {
+            if (!gameActive) return;
+            
+            score++;
+            document.getElementById('score').textContent = score;
+            
+            // Show message
+            const message = document.getElementById('gameMessage');
+            message.textContent = loveMessages[Math.floor(Math.random() * loveMessages.length)];
+            message.style.opacity = '1';
+            
+            setTimeout(() => {
+                message.style.opacity = '0';
+            }, 1500);
+            
+            // Remove clicked heart
+            heart.remove();
+            gameHearts = gameHearts.filter(h => h !== heart);
+            
+            // Heart explosion effect
+            createHeartExplosion(heart.style.left, heart.offsetTop);
+        }
+
+        function createHeartExplosion(x, y) {
+            const gameArea = document.getElementById('gameArea');
+            for (let i = 0; i < 5; i++) {
+                const miniHeart = document.createElement('div');
+                miniHeart.innerHTML = '💕';
+                miniHeart.style.position = 'absolute';
+                miniHeart.style.left = x;
+                miniHeart.style.top = y + 'px';
+                miniHeart.style.fontSize = '15px';
+                miniHeart.style.pointerEvents = 'none';
+                miniHeart.style.animation = `heartExplode 0.8s ease-out forwards`;
+                
+                gameArea.appendChild(miniHeart);
+                
+                setTimeout(() => {
+                    miniHeart.remove();
+                }, 800);
+            }
+        }
+
+        function stopGame() {
+            gameActive = false;
+            clearInterval(gameInterval);
+            
+            // Clear remaining hearts
+            gameHearts.forEach(heart => heart.remove());
+            gameHearts = [];
+            
+            // Show final message
+            const message = document.getElementById('gameMessage');
+            message.innerHTML = `Oyun bitti! <br>${score} kalp yakaladın! 💖<br>Harikasın aşkım!`;
+            message.style.opacity = '1';
+            
+            setTimeout(() => {
+                message.style.opacity = '0';
+            }, 3000);
+        }
+
+        // Timeline animation
+        function animateTimeline() {
+            const timelineItems = document.querySelectorAll('.timeline-item');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.5 });
+
+            timelineItems.forEach(item => {
+                observer.observe(item);
+            });
+        }
+
+        // CSS for heart explosion
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes heartExplode {
+                0% {
+                    transform: translate(0, 0) scale(1);
+                    opacity: 1;
+                }
+                100% {
+                    transform: translate(${Math.random() * 100 - 50}px, ${Math.random() * 100 - 50}px) scale(0);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            // Start falling hearts
+            setInterval(createFallingHeart, 800);
+            
+            // Create stars
+            createStars();
+            
+            // Setup timeline animation
+            animateTimeline();
+            
+            // Shuffle songs for variety
+            shuffleSongs();
+            
+            // Initialize HTML5 Audio Player
+            console.log('HTML5 Audio Player başlatılıyor...');
+            setTimeout(() => {
+                initializeAudioPlayer();
+            }, 1000); // 1 saniye gecikme ile başlat
+        });
+    </script>
+</body>
+</html>
