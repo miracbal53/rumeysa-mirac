@@ -15,6 +15,21 @@
             padding: 0;
             box-sizing: border-box;
         }
+        
+        /* Özel Kalp Cursor - R 💕 M */
+        .love-cursor {
+            cursor: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3e%3cpath fill='%23ff1493' stroke='%23fff' stroke-width='1' d='M16,28c-1.5,0-11-7-11-15c0-4.4,3.6-8,8-8c2.4,0,4.5,1.1,6,2.8C20.5,6.1,22.6,5,25,5c4.4,0,8,3.6,8,8c0,8-9.5,15-11,15H16z'/%3e%3ctext x='6' y='12' fill='white' font-family='Arial' font-size='8' font-weight='bold'%3eR%3c/text%3e%3ctext x='21' y='12' fill='white' font-family='Arial' font-size='8' font-weight='bold'%3eM%3c/text%3e%3c/svg%3e") 16 16, auto !important;
+        }
+        
+        /* Love Letters bölümüne özel cursor */
+        .love-letters {
+            cursor: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3e%3cpath fill='%23ff1493' stroke='%23fff' stroke-width='1' d='M16,28c-1.5,0-11-7-11-15c0-4.4,3.6-8,8-8c2.4,0,4.5,1.1,6,2.8C20.5,6.1,22.6,5,25,5c4.4,0,8,3.6,8,8c0,8-9.5,15-11,15H16z'/%3e%3ctext x='6' y='12' fill='white' font-family='Arial' font-size='8' font-weight='bold'%3eR%3c/text%3e%3ctext x='21' y='12' fill='white' font-family='Arial' font-size='8' font-weight='bold'%3eM%3c/text%3e%3c/svg%3e") 16 16, auto !important;
+        }
+        
+        /* Tıklanabilir elementlere hover cursor */
+        .envelope-container, .letter-btn, .action-btn {
+            cursor: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3e%3cpath fill='%23ff69b4' stroke='%23fff' stroke-width='1' d='M16,28c-1.5,0-11-7-11-15c0-4.4,3.6-8,8-8c2.4,0,4.5,1.1,6,2.8C20.5,6.1,22.6,5,25,5c4.4,0,8,3.6,8,8c0,8-9.5,15-11,15H16z'/%3e%3ctext x='6' y='12' fill='white' font-family='Arial' font-size='8' font-weight='bold'%3eR%3c/text%3e%3ctext x='21' y='12' fill='white' font-family='Arial' font-size='8' font-weight='bold'%3eM%3c/text%3e%3c/svg%3e") 16 16, pointer !important;
+        }
 
         body {
             font-family: 'Georgia', serif;
@@ -22,17 +37,60 @@
             color: #333;
             overflow-x: hidden;
             scroll-behavior: smooth;
+            cursor: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3e%3cpath fill='%23ff1493' stroke='%23fff' stroke-width='1' d='M16,28c-1.5,0-11-7-11-15c0-4.4,3.6-8,8-8c2.4,0,4.5,1.1,6,2.8C20.5,6.1,22.6,5,25,5c4.4,0,8,3.6,8,8c0,8-9.5,15-11,15H16z'/%3e%3ctext x='6' y='12' fill='white' font-family='Arial' font-size='8' font-weight='bold'%3eR%3c/text%3e%3ctext x='21' y='12' fill='white' font-family='Arial' font-size='8' font-weight='bold'%3eM%3c/text%3e%3c/svg%3e") 16 16, auto !important;
         }
 
 
 
-        /* Surprise Box Styles */
+        /* Surprise Box Section - Enhanced Background */
         .surprise-section {
             padding: 80px 20px;
             background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
             text-align: center;
             position: relative;
             overflow: hidden;
+        }
+        
+        .surprise-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 25% 25%, rgba(255, 215, 0, 0.1) 0%, transparent 30%),
+                radial-gradient(circle at 75% 75%, rgba(255, 105, 180, 0.1) 0%, transparent 35%),
+                radial-gradient(circle at 50% 50%, rgba(168, 237, 234, 0.2) 0%, transparent 40%);
+            animation: surpriseGlow 6s ease-in-out infinite;
+        }
+        
+        .surprise-floating-elements {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        .floating-surprise {
+            position: absolute;
+            font-size: 1.8rem;
+            animation: surpriseElementFloat 8s ease-in-out infinite;
+        }
+        
+        @keyframes surpriseGlow {
+            0%, 100% { opacity: 0.6; transform: scale(1) rotate(0deg); }
+            50% { opacity: 1; transform: scale(1.1) rotate(1deg); }
+        }
+        
+        @keyframes surpriseElementFloat {
+            0% { transform: translateY(100vh) scale(0.5) rotate(0deg); opacity: 0; }
+            20% { opacity: 1; transform: scale(1); }
+            80% { opacity: 1; }
+            100% { transform: translateY(-100px) scale(0.3) rotate(720deg); opacity: 0; }
         }
 
         .surprise-section h2 {
@@ -312,7 +370,7 @@
             }
         }
 
-        /* Hero Section */
+        /* Hero Section - Yeniden Tasarlandı */
         .hero {
             height: 100vh;
             display: flex;
@@ -322,55 +380,175 @@
             text-align: center;
             position: relative;
             z-index: 2;
-        }
-
-        .hero h1 {
-            font-size: 4.2rem;
-            background: linear-gradient(45deg, #ff6b9d, #ffc3d8, #ff6b9d, #c44569);
-            background-size: 300% 300%;
-            background-clip: text;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            animation: gradientShift 4s ease infinite, textGlow 2s ease-in-out infinite;
-            font-weight: 700;
-            letter-spacing: -1px;
-            text-align: center;
-            line-height: 1.1;
-            margin-bottom: 25px;
-            text-shadow: none;
-        }
-
-        @keyframes heartbeat {
-            0%, 100% { transform: scale(1); }
-            25% { transform: scale(1.05); }
-            50% { transform: scale(1.1); }
-            75% { transform: scale(1.05); }
-        }
-
-        .hero p {
-            font-size: 1.5rem;
-            color: #6f42c1;
-            margin-bottom: 40px;
-            font-style: italic;
-        }
-
-        .magic-button {
-            background: linear-gradient(45deg, #ff1744, #e91e63);
-            border: none;
-            padding: 20px 40px;
-            font-size: 1.2rem;
-            color: white;
-            border-radius: 50px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 10px 30px rgba(255, 23, 68, 0.3);
-            position: relative;
+            background: linear-gradient(135deg, 
+                rgba(255, 107, 157, 0.1) 0%, 
+                rgba(196, 69, 105, 0.15) 25%,
+                rgba(111, 66, 193, 0.1) 50%,
+                rgba(255, 195, 216, 0.15) 75%,
+                rgba(255, 107, 157, 0.1) 100%);
             overflow: hidden;
         }
 
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, 
+                rgba(255, 107, 157, 0.1) 0%, 
+                rgba(196, 69, 105, 0.05) 25%,
+                transparent 50%);
+            animation: heroRotate 20s linear infinite;
+            z-index: -1;
+        }
+
+        @keyframes heroRotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 3;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 30px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 
+                0 20px 60px rgba(255, 107, 157, 0.2),
+                0 10px 30px rgba(196, 69, 105, 0.1),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            animation: heroFloat 6s ease-in-out infinite;
+            max-width: 800px;
+            width: 90%;
+        }
+
+        @keyframes heroFloat {
+            0%, 100% { transform: translateY(0px) scale(1); }
+            33% { transform: translateY(-10px) scale(1.02); }
+            66% { transform: translateY(-5px) scale(1.01); }
+        }
+
+        .hero h1 {
+            font-size: 5rem;
+            background: linear-gradient(45deg, 
+                #ff1744, #e91e63, #ff6b9d, #ffc3d8, #ff6b9d, #e91e63, #ff1744);
+            background-size: 400% 400%;
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: heroGradientShift 3s ease infinite, heroHeartbeat 4s ease-in-out infinite;
+            font-weight: 800;
+            letter-spacing: -2px;
+            text-align: center;
+            line-height: 1;
+            margin-bottom: 30px;
+            position: relative;
+            text-shadow: 0 0 30px rgba(255, 107, 157, 0.3);
+        }
+
+        .hero h1::after {
+            content: '💕';
+            position: absolute;
+            top: -20px;
+            right: -30px;
+            font-size: 2rem;
+            animation: heroHeartPulse 2s ease-in-out infinite;
+        }
+
+        @keyframes heroGradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        @keyframes heroHeartbeat {
+            0%, 100% { transform: scale(1); }
+            25% { transform: scale(1.03); }
+            50% { transform: scale(1.05); }
+            75% { transform: scale(1.03); }
+        }
+
+        @keyframes heroHeartPulse {
+            0%, 100% { transform: scale(1) rotate(0deg); opacity: 0.8; }
+            50% { transform: scale(1.3) rotate(10deg); opacity: 1; }
+        }
+
+        .hero-subtitle {
+            font-size: 1.8rem;
+            background: linear-gradient(45deg, #6f42c1, #e91e63, #ff6b9d);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 20px;
+            font-style: italic;
+            font-weight: 500;
+            animation: heroSubtitleGlow 3s ease-in-out infinite;
+            position: relative;
+        }
+
+        @keyframes heroSubtitleGlow {
+            0%, 100% { text-shadow: 0 0 10px rgba(111, 66, 193, 0.3); }
+            50% { text-shadow: 0 0 20px rgba(233, 30, 99, 0.5); }
+        }
+
+        .hero-message {
+            font-size: 1.2rem;
+            color: rgba(111, 66, 193, 0.9);
+            margin-bottom: 40px;
+            line-height: 1.6;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            animation: heroMessageFade 4s ease-in-out infinite;
+        }
+
+        @keyframes heroMessageFade {
+            0%, 100% { opacity: 0.8; }
+            50% { opacity: 1; }
+        }
+
+        .magic-button {
+            background: linear-gradient(135deg, #ff1744, #e91e63, #ff6b9d, #e91e63, #ff1744);
+            background-size: 300% 300%;
+            border: none;
+            padding: 25px 50px;
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: white;
+            border-radius: 60px;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 
+                0 15px 40px rgba(255, 23, 68, 0.4),
+                0 5px 15px rgba(233, 30, 99, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+            position: relative;
+            overflow: hidden;
+            animation: magicButtonGradient 3s ease infinite, magicButtonFloat 4s ease-in-out infinite;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+        }
+
+        @keyframes magicButtonGradient {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        @keyframes magicButtonFloat {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-3px); }
+        }
+
         .magic-button:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(255, 23, 68, 0.4);
+            transform: translateY(-8px) scale(1.05);
+            box-shadow: 
+                0 25px 60px rgba(255, 23, 68, 0.5),
+                0 15px 30px rgba(233, 30, 99, 0.4),
+                inset 0 1px 0 rgba(255, 255, 255, 0.3);
+            animation-play-state: paused;
         }
 
         .magic-button::before {
@@ -381,11 +559,27 @@
             width: 100%;
             height: 100%;
             background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
-            transition: left 0.5s;
+            transition: left 0.6s ease;
         }
 
         .magic-button:hover::before {
             left: 100%;
+        }
+
+        .magic-button::after {
+            content: '✨';
+            position: absolute;
+            top: 50%;
+            right: 15px;
+            transform: translateY(-50%);
+            font-size: 1.2rem;
+            opacity: 0.8;
+            animation: buttonSparkle 2s ease-in-out infinite;
+        }
+
+        @keyframes buttonSparkle {
+            0%, 100% { opacity: 0.6; transform: translateY(-50%) scale(1) rotate(0deg); }
+            50% { opacity: 1; transform: translateY(-50%) scale(1.2) rotate(180deg); }
         }
 
         /* Love Reasons Section */
@@ -465,12 +659,245 @@
             text-align: center;
         }
 
-        /* Love Letters Section */
+        /* Love Letters Section - Enhanced with Letter Animations */
         .love-letters {
             padding: 80px 20px;
-            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
             text-align: center;
+            background: linear-gradient(135deg, #fff0f5, #ffe4e1);
             position: relative;
+            overflow: hidden;
+        }
+        
+        .love-letters::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                linear-gradient(45deg, transparent 30%, rgba(255, 182, 193, 0.1) 50%, transparent 70%),
+                linear-gradient(-45deg, transparent 30%, rgba(255, 105, 180, 0.08) 50%, transparent 70%);
+            animation: letterSectionShine 12s ease-in-out infinite;
+        }
+        
+        .letters-floating-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        .floating-letter {
+            position: absolute;
+            font-size: 2rem;
+            color: rgba(255, 20, 147, 0.3);
+            animation: letterFloat 10s linear infinite;
+        }
+        
+        .floating-envelope {
+            position: absolute;
+            font-size: 1.5rem;
+            color: rgba(196, 69, 105, 0.4);
+            animation: envelopeFloat 12s linear infinite;
+        }
+        
+        @keyframes letterSectionShine {
+            0%, 100% { transform: translateX(-100%); }
+            50% { transform: translateX(100%); }
+        }
+        
+        @keyframes letterFloat {
+            0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-100px) rotate(180deg); opacity: 0; }
+        }
+        
+        @keyframes envelopeFloat {
+            0% { transform: translateY(100vh) translateX(-20px) rotate(0deg); opacity: 0; }
+            15% { opacity: 1; }
+            85% { opacity: 1; }
+            100% { transform: translateY(-100px) translateX(20px) rotate(360deg); opacity: 0; }
+        }
+        
+        /* Mektup Zarfı Stilleri */
+        .envelope-container {
+            position: relative;
+            width: 300px;
+            height: 200px;
+            margin: 30px auto;
+            transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            transform-style: preserve-3d;
+        }
+        
+        .envelope-container:hover {
+            transform: translateY(-10px) scale(1.05);
+            filter: drop-shadow(0 15px 30px rgba(255, 20, 147, 0.3));
+        }
+        
+        .envelope-body {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, #fff, #ffeef0);
+            border: 3px solid #d63384;
+            border-radius: 10px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        
+        .envelope-flap {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 0;
+            border-left: 150px solid transparent;
+            border-right: 150px solid transparent;
+            border-top: 100px solid #e91e63;
+            transition: all 0.5s ease;
+            z-index: 2;
+        }
+        
+        .envelope-container.opened .envelope-flap {
+            transform: translateX(-50%) rotateX(180deg);
+            border-top-color: #c2185b;
+        }
+        
+        .envelope-heart {
+            position: absolute;
+            top: -80px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 2rem;
+            animation: envelopeHeartBeat 2s ease-in-out infinite;
+        }
+        
+        .letter-preview {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-style: italic;
+            color: #666;
+            font-size: 1.1rem;
+            opacity: 0.8;
+        }
+        
+        /* Mektup İçerik Stilleri */
+        .letter-content {
+            max-width: 600px;
+            margin: 30px auto;
+            background: #fff;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border-left: 5px solid #e91e63;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.5s ease;
+            display: none;
+        }
+        
+        .letter-content.visible {
+            opacity: 1;
+            transform: translateY(0);
+            display: block;
+        }
+        
+        .letter-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px dashed #ffc0cb;
+        }
+        
+        .letter-date {
+            font-weight: bold;
+            color: #d63384;
+            text-align: left;
+        }
+        
+        .letter-btn {
+            background: linear-gradient(45deg, #e91e63, #f06292);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(233, 30, 99, 0.3);
+        }
+        
+        .letter-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(233, 30, 99, 0.4);
+            background: linear-gradient(45deg, #c2185b, #e91e63);
+        }
+        
+        .letter-text {
+            text-align: left;
+            line-height: 1.8;
+            color: #333;
+            font-size: 1.1rem;
+            white-space: pre-line;
+            margin-bottom: 30px;
+            font-family: 'Georgia', serif;
+        }
+        
+        .letter-actions {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 25px;
+            flex-wrap: wrap;
+        }
+        
+        .action-btn {
+            padding: 12px 25px;
+            border: none;
+            border-radius: 25px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        
+        .random-btn {
+            background: linear-gradient(45deg, #9c27b0, #e91e63);
+            color: white;
+        }
+        
+        .random-btn:hover {
+            background: linear-gradient(45deg, #7b1fa2, #c2185b);
+            transform: translateY(-2px);
+        }
+        
+        .special-btn {
+            background: linear-gradient(45deg, #ff9800, #ffc107);
+            color: white;
+        }
+        
+        .special-btn:hover {
+            background: linear-gradient(45deg, #f57c00, #ff9800);
+            transform: translateY(-2px);
+        }
+        
+        /* Animasyonlar */
+        @keyframes envelopeHeartBeat {
+            0%, 100% { transform: translateX(-50%) scale(1); }
+            50% { transform: translateX(-50%) scale(1.2); }
+        }
+        
+        @keyframes envelopeGlow {
+            0%, 100% { box-shadow: 0 0 20px rgba(255, 20, 147, 0.3); }
+            50% { box-shadow: 0 0 40px rgba(255, 20, 147, 0.6); }
         }
 
         .love-letters h2 {
@@ -486,49 +913,6 @@
             position: relative;
         }
 
-        .letter-envelope {
-            width: 300px;
-            height: 200px;
-            background: #f8f9fa;
-            border: 3px solid #d63384;
-            border-radius: 10px;
-            margin: 0 auto 40px;
-            position: relative;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-        }
-
-        .letter-envelope:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
-        }
-
-        .envelope-flap {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 50%;
-            background: #e91e63;
-            clip-path: polygon(0 0, 50% 70%, 100% 0);
-            transition: all 0.5s ease;
-            transform-origin: top center;
-        }
-
-        .letter-envelope.opened .envelope-flap {
-            transform: rotateX(-180deg);
-        }
-
-        .envelope-heart {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-size: 2rem;
-            color: #d63384;
-        }
-
         .letter-content {
             max-width: 600px;
             margin: 40px auto;
@@ -540,6 +924,7 @@
             transform: translateY(30px);
             transition: all 0.5s ease;
             border-left: 5px solid #e91e63;
+            display: none;
         }
 
         .letter-content:hover {
@@ -772,6 +1157,450 @@
             margin-bottom: 10px;
         }
 
+        /* Romantic Camping Section */
+        .camping-section {
+            position: relative;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 50%, #2c3e50 100%);
+            overflow: hidden;
+            padding: 80px 0;
+        }
+
+        .camping-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .mountain-silhouette {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 40%;
+            background: linear-gradient(45deg, #1a1a1a 0%, #2c2c2c 50%, #1a1a1a 100%);
+            clip-path: polygon(0 100%, 20% 60%, 40% 80%, 60% 40%, 80% 70%, 100% 50%, 100% 100%);
+        }
+
+        .stars-camping {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(2px 2px at 20px 30px, #fff, transparent),
+                radial-gradient(2px 2px at 40px 70px, rgba(255,255,255,0.8), transparent),
+                radial-gradient(1px 1px at 90px 40px, #fff, transparent),
+                radial-gradient(1px 1px at 130px 80px, rgba(255,255,255,0.6), transparent),
+                radial-gradient(2px 2px at 160px 30px, #fff, transparent);
+            background-repeat: repeat;
+            background-size: 200px 100px;
+            animation: starsTwinkle 4s ease-in-out infinite alternate;
+        }
+
+        .moon {
+            position: absolute;
+            top: 15%;
+            right: 15%;
+            width: 80px;
+            height: 80px;
+            background: radial-gradient(circle at 30% 30%, #fff, #f0f0f0);
+            border-radius: 50%;
+            box-shadow: 0 0 40px rgba(255, 255, 255, 0.3);
+            animation: moonGlow 3s ease-in-out infinite alternate;
+        }
+
+        .camping-content {
+            position: relative;
+            z-index: 2;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .camping-title {
+            font-size: 3.5rem;
+            color: #fff;
+            text-align: center;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            animation: campingTitleGlow 2s ease-in-out infinite alternate;
+        }
+
+        .camping-subtitle {
+            font-size: 1.3rem;
+            color: #ecf0f1;
+            text-align: center;
+            margin-bottom: 50px;
+            opacity: 0.9;
+        }
+
+        /* Camp Timeline */
+        .camp-timeline {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 50px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .timeline-controls {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .timeline-btn {
+            background: linear-gradient(45deg, rgba(74, 144, 226, 0.8), rgba(80, 227, 194, 0.8));
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 25px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3e%3cpath fill='%23ff69b4' stroke='%23fff' stroke-width='1' d='M16,28c-1.5,0-11-7-11-15c0-4.4,3.6-8,8-8c2.4,0,4.5,1.1,6,2.8C20.5,6.1,22.6,5,25,5c4.4,0,8,3.6,8,8c0,8-9.5,15-11,15H16z'/%3e%3ctext x='6' y='12' fill='white' font-family='Arial' font-size='8' font-weight='bold'%3eR%3c/text%3e%3ctext x='21' y='12' fill='white' font-family='Arial' font-size='8' font-weight='bold'%3eM%3c/text%3e%3c/svg%3e") 16 16, pointer !important;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .timeline-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+            background: linear-gradient(45deg, rgba(74, 144, 226, 1), rgba(80, 227, 194, 1));
+        }
+
+        .timeline-btn.active {
+            background: linear-gradient(45deg, #e74c3c, #f39c12);
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(231, 76, 60, 0.4);
+        }
+
+        /* Camp Scenes */
+        .camp-scene {
+            display: none;
+            opacity: 0;
+            transition: all 0.5s ease;
+        }
+
+        .camp-scene.active {
+            display: flex;
+            opacity: 1;
+            gap: 40px;
+            align-items: center;
+            animation: sceneAppear 0.8s ease-out;
+        }
+
+        .scene-visual {
+            flex: 1;
+            height: 300px;
+            position: relative;
+            background: linear-gradient(180deg, rgba(135, 206, 235, 0.3) 0%, rgba(255, 218, 185, 0.3) 100%);
+            border-radius: 15px;
+            overflow: hidden;
+            margin-right: 20px;
+        }
+
+        .scene-content {
+            flex: 1.5;
+            color: white;
+        }
+
+        .scene-content h3 {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+            color: #f39c12;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+
+        .scene-text p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 15px;
+            color: #ecf0f1;
+        }
+
+        .scene-text strong {
+            color: #f39c12;
+            font-weight: 600;
+        }
+
+        /* Visual Elements */
+        .camp-tent {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .tent-body {
+            width: 120px;
+            height: 80px;
+            background: linear-gradient(45deg, #27ae60, #2ecc71);
+            clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+            position: relative;
+        }
+
+        .tent-door {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 30px;
+            height: 50px;
+            background: #34495e;
+            border-radius: 15px 15px 0 0;
+        }
+
+        .tent-flag {
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 20px;
+            height: 15px;
+            background: #e74c3c;
+            animation: flagWave 2s ease-in-out infinite;
+        }
+
+        .sunrise-animation {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            background: radial-gradient(circle, #f39c12 30%, #e67e22 70%);
+            border-radius: 50%;
+            animation: sunRise 4s ease-in-out infinite;
+        }
+
+        .birds-animation {
+            position: absolute;
+            top: 40px;
+            left: 20px;
+        }
+
+        .bird {
+            position: absolute;
+            width: 20px;
+            height: 10px;
+            background: #34495e;
+            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+            animation: birdFly 3s ease-in-out infinite;
+        }
+
+        .bird:nth-child(2) {
+            left: 30px;
+            animation-delay: 0.5s;
+        }
+
+        .bird:nth-child(3) {
+            left: 60px;
+            animation-delay: 1s;
+        }
+
+        /* Fire Animation */
+        .camp-fire {
+            position: absolute;
+            bottom: 50px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .fire-flames {
+            width: 40px;
+            height: 60px;
+            background: linear-gradient(0deg, #e74c3c 0%, #f39c12 50%, #f1c40f 100%);
+            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+            animation: fireFlicker 1s ease-in-out infinite alternate;
+        }
+
+        .fire-logs {
+            position: absolute;
+            bottom: -10px;
+            left: -10px;
+            width: 60px;
+            height: 15px;
+            background: #8b4513;
+            border-radius: 10px;
+        }
+
+        .fire-sparks {
+            position: absolute;
+            top: -20px;
+            left: 20px;
+            width: 3px;
+            height: 3px;
+            background: #f39c12;
+            border-radius: 50%;
+            animation: sparksFly 2s ease-in-out infinite;
+        }
+
+        /* Interactive Elements */
+        .camp-btn {
+            background: linear-gradient(45deg, #e74c3c, #f39c12);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 25px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3e%3cpath fill='%23ff69b4' stroke='%23fff' stroke-width='1' d='M16,28c-1.5,0-11-7-11-15c0-4.4,3.6-8,8-8c2.4,0,4.5,1.1,6,2.8C20.5,6.1,22.6,5,25,5c4.4,0,8,3.6,8,8c0,8-9.5,15-11,15H16z'/%3e%3ctext x='6' y='12' fill='white' font-family='Arial' font-size='8' font-weight='bold'%3eR%3c/text%3e%3ctext x='21' y='12' fill='white' font-family='Arial' font-size='8' font-weight='bold'%3eM%3c/text%3e%3c/svg%3e") 16 16, pointer !important;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+            box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3);
+        }
+
+        .camp-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(231, 76, 60, 0.4);
+            background: linear-gradient(45deg, #c0392b, #d35400);
+        }
+
+        /* Special Moments */
+        .special-moments {
+            margin-top: 60px;
+        }
+
+        .special-moments h3 {
+            font-size: 2.5rem;
+            color: #f39c12;
+            text-align: center;
+            margin-bottom: 40px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .moments-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .moment-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+            cursor: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3e%3cpath fill='%23ff69b4' stroke='%23fff' stroke-width='1' d='M16,28c-1.5,0-11-7-11-15c0-4.4,3.6-8,8-8c2.4,0,4.5,1.1,6,2.8C20.5,6.1,22.6,5,25,5c4.4,0,8,3.6,8,8c0,8-9.5,15-11,15H16z'/%3e%3ctext x='6' y='12' fill='white' font-family='Arial' font-size='8' font-weight='bold'%3eR%3c/text%3e%3ctext x='21' y='12' fill='white' font-family='Arial' font-size='8' font-weight='bold'%3eM%3c/text%3e%3c/svg%3e") 16 16, pointer !important;
+        }
+
+        .moment-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+        }
+
+        .moment-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            animation: iconBounce 2s ease-in-out infinite;
+        }
+
+        .moment-card h4 {
+            font-size: 1.4rem;
+            color: #f39c12;
+            margin-bottom: 10px;
+        }
+
+        .moment-card p {
+            color: #ecf0f1;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        /* Animations */
+        @keyframes campingTitleGlow {
+            0% { text-shadow: 2px 2px 4px rgba(0,0,0,0.5), 0 0 20px rgba(243, 156, 18, 0.3); }
+            100% { text-shadow: 2px 2px 4px rgba(0,0,0,0.5), 0 0 30px rgba(243, 156, 18, 0.6); }
+        }
+
+        @keyframes starsTwinkle {
+            0% { opacity: 0.5; }
+            100% { opacity: 1; }
+        }
+
+        @keyframes moonGlow {
+            0% { box-shadow: 0 0 40px rgba(255, 255, 255, 0.3); }
+            100% { box-shadow: 0 0 60px rgba(255, 255, 255, 0.6); }
+        }
+
+        @keyframes sceneAppear {
+            0% { opacity: 0; transform: translateY(30px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes flagWave {
+            0%, 100% { transform: translateX(-50%) rotate(-5deg); }
+            50% { transform: translateX(-50%) rotate(5deg); }
+        }
+
+        @keyframes sunRise {
+            0% { transform: translateY(20px); opacity: 0.6; }
+            50% { transform: translateY(-10px); opacity: 1; }
+            100% { transform: translateY(0px); opacity: 0.8; }
+        }
+
+        @keyframes birdFly {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            25% { transform: translateY(-10px) rotate(-5deg); }
+            75% { transform: translateY(-5px) rotate(5deg); }
+        }
+
+        @keyframes fireFlicker {
+            0% { transform: scaleY(1) scaleX(0.8); }
+            100% { transform: scaleY(1.2) scaleX(1); }
+        }
+
+        @keyframes sparksFly {
+            0% { transform: translateY(0) opacity(1); }
+            100% { transform: translateY(-30px) opacity(0); }
+        }
+
+        @keyframes iconBounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .camping-title {
+                font-size: 2.5rem;
+            }
+            
+            .camp-scene.active {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .scene-visual {
+                margin-right: 0;
+                height: 200px;
+            }
+            
+            .moments-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .timeline-controls {
+                gap: 10px;
+            }
+            
+            .timeline-btn {
+                padding: 10px 15px;
+                font-size: 0.9rem;
+            }
+        }
+
         /* Final Section */
         .final-section {
             height: 100vh;
@@ -942,6 +1771,183 @@
                 transform: translateY(100vh) rotate(360deg); 
                 opacity: 0; 
             }
+        }
+
+        /* Yeni Spectacular Animasyonlar */
+        @keyframes megaHeartEntrance {
+            0% { 
+                opacity: 0; 
+                transform: scale(0) rotate(0deg); 
+            }
+            50% { 
+                opacity: 1; 
+                transform: scale(1.2) rotate(180deg); 
+            }
+            100% { 
+                opacity: 1; 
+                transform: scale(1) rotate(360deg); 
+            }
+        }
+
+        @keyframes megaHeartExplode {
+            0% { 
+                transform: scale(1); 
+                opacity: 1; 
+                filter: brightness(1);
+            }
+            50% { 
+                transform: scale(1.5); 
+                opacity: 0.8; 
+                filter: brightness(2);
+            }
+            100% { 
+                transform: scale(3); 
+                opacity: 0; 
+                filter: brightness(5) blur(10px);
+            }
+        }
+
+        @keyframes spectacularParticleExplosion {
+            0% { 
+                transform: translate(-50%, -50%) scale(1); 
+                opacity: 1; 
+            }
+            100% { 
+                transform: translate(calc(-50% + var(--end-x)), calc(-50% + var(--end-y))) scale(0); 
+                opacity: 0; 
+            }
+        }
+
+        @keyframes spectacularHeartDance {
+            0%, 100% { 
+                transform: translateY(0px) rotate(0deg) scale(1); 
+            }
+            25% { 
+                transform: translateY(-20px) rotate(90deg) scale(1.1); 
+            }
+            50% { 
+                transform: translateY(-10px) rotate(180deg) scale(0.9); 
+            }
+            75% { 
+                transform: translateY(-15px) rotate(270deg) scale(1.05); 
+            }
+        }
+
+        @keyframes spectacularStarFall {
+            0% { 
+                transform: translateY(-50px) rotate(0deg) scale(1); 
+                opacity: 1; 
+            }
+            50% { 
+                opacity: 1; 
+                transform: translateY(50vh) rotate(180deg) scale(1.2); 
+            }
+            100% { 
+                transform: translateY(100vh) rotate(360deg) scale(0.5); 
+                opacity: 0; 
+            }
+        }
+
+        @keyframes megaMessageAppear {
+            0% { 
+                opacity: 0; 
+                transform: scale(0.3) translateY(100px); 
+            }
+            60% { 
+                opacity: 0.8; 
+                transform: scale(1.1) translateY(-20px); 
+            }
+            100% { 
+                opacity: 1; 
+                transform: scale(1) translateY(0px); 
+            }
+        }
+
+        @keyframes overlayFadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        @keyframes overlayFadeOut {
+            0% { opacity: 1; }
+            100% { opacity: 0; }
+        }
+
+        /* Mega Love Message Stilleri */
+        .love-title {
+            font-size: 4rem;
+            font-weight: 900;
+            margin-bottom: 20px;
+            letter-spacing: 0.1em;
+        }
+
+        .love-word, .love-heart {
+            display: inline-block;
+            animation: wordBounce 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55) both;
+            background: linear-gradient(45deg, #ff1744, #e91e63, #ff6b9d, #ffc3d8);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 30px rgba(255, 107, 157, 0.6);
+        }
+
+        .love-heart {
+            font-size: 5rem !important;
+            margin: 0 10px;
+            background: none !important;
+            -webkit-text-fill-color: #ff1744 !important;
+            animation: heartPulse 1s ease-in-out infinite;
+        }
+
+        @keyframes wordBounce {
+            0% { transform: translateY(100px) scale(0); opacity: 0; }
+            60% { transform: translateY(-20px) scale(1.1); opacity: 1; }
+            100% { transform: translateY(0px) scale(1); opacity: 1; }
+        }
+
+        @keyframes heartPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.3); }
+        }
+
+        .love-name {
+            font-size: 3rem;
+            color: #ff6b9d;
+            font-weight: 700;
+            margin-bottom: 30px;
+            animation: nameGlow 2s ease-in-out infinite alternate;
+            text-shadow: 0 0 20px rgba(255, 107, 157, 0.8);
+        }
+
+        @keyframes nameGlow {
+            0% { text-shadow: 0 0 20px rgba(255, 107, 157, 0.8); }
+            100% { text-shadow: 0 0 40px rgba(255, 107, 157, 1), 0 0 60px rgba(233, 30, 99, 0.8); }
+        }
+
+        .love-poem {
+            font-size: 1.3rem;
+            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.95);
+            margin-bottom: 30px;
+            max-width: 600px;
+            animation: poemFadeIn 2s ease-out 1s both;
+        }
+
+        @keyframes poemFadeIn {
+            0% { opacity: 0; transform: translateY(30px); }
+            100% { opacity: 1; transform: translateY(0px); }
+        }
+
+        .love-signature {
+            font-size: 1.1rem;
+            color: #ffc3d8;
+            font-style: italic;
+            animation: signatureAppear 1.5s ease-out 2.5s both;
+        }
+
+        @keyframes signatureAppear {
+            0% { opacity: 0; transform: scale(0.8); }
+            100% { opacity: 1; transform: scale(1); }
         }
 
         /* Sürpriz mesaj stilleri */
@@ -1147,26 +2153,51 @@
         }
 
         @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.8rem;
-                margin-bottom: 20px;
-                line-height: 1.2;
+            /* Hero Mobile - Yeniden Tasarlandı */
+            .hero-content {
+                padding: 25px 20px;
+                margin: 20px;
+                width: calc(100% - 40px);
+                max-width: none;
             }
             
-            .hero p {
-                font-size: 1.3rem;
-                margin-bottom: 35px;
-                padding: 0 15px;
-                line-height: 1.6;
+            .hero h1 {
+                font-size: 3.2rem;
+                margin-bottom: 20px;
+                line-height: 1.1;
+                letter-spacing: -1px;
+            }
+            
+            .hero h1::after {
+                font-size: 1.5rem;
+                top: -15px;
+                right: -20px;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.4rem;
+                margin-bottom: 15px;
+            }
+            
+            .hero-message {
+                font-size: 1rem;
+                margin-bottom: 30px;
+                padding: 0 10px;
+                line-height: 1.5;
             }
             
             .magic-button {
-                padding: 18px 30px;
+                padding: 18px 35px;
                 font-size: 1.1rem;
                 margin: 15px;
                 min-height: 60px;
                 border-radius: 35px;
                 box-shadow: 0 10px 30px rgba(255, 107, 157, 0.3);
+            }
+            
+            .magic-button::after {
+                right: 12px;
+                font-size: 1rem;
             }
             
             .love-reasons h2 {
@@ -1198,32 +2229,37 @@
                 margin-bottom: 30px;
             }
             
-            .letter-envelope {
-                width: 280px;
-                height: 180px;
-                margin: 0 auto 30px;
+            .envelope-container {
+                width: 250px;
+                height: 160px;
+            }
+            
+            .envelope-flap {
+                border-left-width: 125px;
+                border-right-width: 125px;
+                border-top-width: 80px;
             }
             
             .letter-content {
-                padding: 25px 20px;
-                margin: 30px 10px;
+                margin: 20px;
+                padding: 20px;
             }
             
-            .letter-text {
-                font-size: 1rem;
-                line-height: 1.6;
+            .letter-header {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
             }
             
-            .letter-buttons {
-                gap: 10px;
-                padding: 0 10px;
+            .action-btn {
+                width: 100%;
+                margin-bottom: 10px;
             }
-            
-            .letter-btn {
-                padding: 10px 15px;
-                font-size: 0.9rem;
-                flex: 1;
-                max-width: 150px;
+
+            /* Diğer mobile stiller */
+            .surprise-box {
+                width: 200px;
+                height: 200px;
             }
             
             /* Game Section Mobile */
@@ -1346,8 +2382,37 @@
         }
         
         @media (max-width: 480px) {
+            /* Hero Extra Small Mobile */
+            .hero-content {
+                padding: 20px 15px;
+                margin: 15px;
+            }
+            
             .hero h1 {
-                font-size: 2rem;
+                font-size: 2.5rem;
+                letter-spacing: 0;
+            }
+            
+            .hero h1::after {
+                font-size: 1.2rem;
+                top: -10px;
+                right: -15px;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .hero-message {
+                font-size: 0.9rem;
+                margin-bottom: 25px;
+            }
+            
+            .magic-button {
+                padding: 15px 25px;
+                font-size: 1rem;
+                width: 200px;
+                max-width: none;
             }
             
             .letter-envelope {
@@ -1404,11 +2469,17 @@
     <!-- Falling Hearts -->
     <div class="falling-hearts" id="fallingHearts"></div>
 
-    <!-- Hero Section -->
+    <!-- Hero Section - Yeniden Tasarlandı -->
     <section class="hero">
-        <h1>Miraç ❤️ Rümeysa</h1>
-        <p>Sonsuza kadar birlikte 💕</p>
-        <button class="magic-button" onclick="startJourney()">Beni tıkla aşkım 💌</button>
+        <div class="hero-content">
+            <h1>Miraç ❤️ Rümeysa</h1>
+            <div class="hero-subtitle">Sonsuza Kadar Birlikte</div>
+            <div class="hero-message">
+                Bu site, sana olan sonsuz aşkımın bir yansıması...<br>
+                Her detayı seninle paylaştığımız güzel anılarla dolu �
+            </div>
+            <button class="magic-button" onclick="startJourney()">Aşk Yolculuğumuza Başla</button>
+        </div>
     </section>
 
     <!-- Love Reasons Section -->
@@ -1580,23 +2651,27 @@
         <p style="margin-bottom: 30px; font-size: 1.1rem; color: #666;">Her gün senin için yazdığım mektuplardan biri...</p>
         
         <div class="letter-container">
-            <div class="letter-envelope" id="letterEnvelope">
-                <div class="envelope-flap"></div>
-                <div class="envelope-heart">💌</div>
+            <div class="envelope-container" id="letterEnvelope" onclick="handleLetterClick()">
+                <div class="envelope-body">
+                    <div class="envelope-flap">
+                        <div class="envelope-heart">💌</div>
+                    </div>
+                    <div class="letter-preview">Sevgili Rümeysa'ya...</div>
+                </div>
             </div>
             
-            <div class="letter-content" id="letterContent" onclick="handleLetterClick()" style="cursor: pointer;">
-                <div class="letter-date" id="letterDate"></div>
+            <div class="letter-content" id="letterContent">
+                <div class="letter-header">
+                    <div class="letter-date" id="letterDate"></div>
+                    <button class="letter-btn" onclick="handleLetterClick()">
+                        <span id="letterBtnText">Mektubu Kapat �</span>
+                    </button>
+                </div>
                 <div class="letter-text" id="letterText"></div>
-                <div class="letter-signature">Sonsuz sevgimle,<br>💖 Miraç</div>
-            </div>
-            
-            <div class="letter-buttons">
-                <button class="letter-btn" onclick="openLetter()">
-                    <span id="letterBtnText">Mektubu Aç 💌</span>
-                </button>
-                <button class="letter-btn" onclick="getRandomLetter()">Başka Mektup 💕</button>
-                <button class="letter-btn" onclick="getSpecialLetter()">Özel Mektup ✨</button>
+                <div class="letter-actions">
+                    <button onclick="getRandomLetter(event)" class="action-btn random-btn">🎲 Rastgele Mektup</button>
+                    <button onclick="getSpecialLetter(event)" class="action-btn special-btn">✨ Özel Mektup</button>
+                </div>
             </div>
         </div>
     </section>
@@ -1654,6 +2729,193 @@
             <div class="timeline-content">
                 <h3>Gelecek (Çok Yakında 😍)</h3>
                 <p>İlk buluşmamız, birlikte geçireceğimiz güzel anlar... Daha çok güzel şey bizi bekliyor!</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Romantic Camping Plan Section -->
+    <section class="camping-section">
+        <div class="camping-background">
+            <div class="mountain-silhouette"></div>
+            <div class="stars-camping" id="starsCamping"></div>
+            <div class="moon" id="campingMoon"></div>
+        </div>
+        
+        <div class="camping-content">
+            <h2 class="camping-title">🏕️ Seninle Romantik Kamp Hayalim 🌙</h2>
+            <p class="camping-subtitle">Doğanın kucağında, sadece sen ve ben... Her anı birlikte yaşayacağımız unutulmaz macera!</p>
+            
+            <!-- Interactive Camp Timeline -->
+            <div class="camp-timeline">
+                <div class="timeline-controls">
+                    <button class="timeline-btn active" data-time="morning" onclick="showCampTime('morning')">
+                        🌅 Sabah
+                    </button>
+                    <button class="timeline-btn" data-time="afternoon" onclick="showCampTime('afternoon')">
+                        ☀️ Öğlen
+                    </button>
+                    <button class="timeline-btn" data-time="evening" onclick="showCampTime('evening')">
+                        🌅 Akşam
+                    </button>
+                    <button class="timeline-btn" data-time="night" onclick="showCampTime('night')">
+                        🌙 Gece
+                    </button>
+                </div>
+                
+                <!-- Morning Scene -->
+                <div class="camp-scene active" id="morning-scene">
+                    <div class="scene-visual">
+                        <div class="camp-tent">
+                            <div class="tent-body"></div>
+                            <div class="tent-door"></div>
+                            <div class="tent-flag"></div>
+                        </div>
+                        <div class="sunrise-animation" id="sunrise"></div>
+                        <div class="birds-animation">
+                            <div class="bird"></div>
+                            <div class="bird"></div>
+                            <div class="bird"></div>
+                        </div>
+                    </div>
+                    <div class="scene-content">
+                        <h3>🌅 Güne Birlikte Merhaba</h3>
+                        <div class="scene-text">
+                            <p><strong>Sabah 06:30 - İlk Işıklar</strong></p>
+                            <p>Çadırdan çıkıp seninle ilk güneş ışıklarını karşılamak... Sabah serinliğinde seni yanıma çekip sarılmak, kulaklarına "Günaydın aşkım" diye fısıldamak. 🌸</p>
+                            
+                            <p><strong>07:00 - Kahvaltı Hazırlığı</strong></p>
+                            <p>Sen uyurken sessizce kamp ocağını yakıp çay koyacağım. Doğanın seslerinin arasında, sadece bizim için hazırladığım özel kahvaltı... Bal, tereyağı, sıcacık ekmekler ve tabii ki senin favori çayın! ☕💕</p>
+                            
+                            <div class="interactive-element">
+                                <button class="camp-btn" onclick="startMorningActivity()">
+                                    🌅 Sabah Etkinliğini Başlat
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Afternoon Scene -->
+                <div class="camp-scene" id="afternoon-scene">
+                    <div class="scene-visual">
+                        <div class="forest-background">
+                            <div class="tree"></div>
+                            <div class="tree"></div>
+                            <div class="tree"></div>
+                        </div>
+                        <div class="hiking-couple">
+                            <div class="hiker-1">👫</div>
+                        </div>
+                        <div class="sun-animation"></div>
+                    </div>
+                    <div class="scene-content">
+                        <h3>☀️ Öğlen Maceramız</h3>
+                        <div class="scene-text">
+                            <p><strong>10:00 - Doğa Yürüyüşü</strong></p>
+                            <p>El ele tutuşup ormandaki patikada yürüyeceğiz. Sen bir çiçek gördüğünde durup koklatacaksın bana, ben de seni fotoğraflayacağım. Her adımda yeni bir keşif, her nefeste seni daha çok sevmek... 🌿📸</p>
+                            
+                            <p><strong>12:30 - Piknik Zamanı</strong></p>
+                            <p>Gölge bir ağacın altında açacağımız piknik örtüsü. Seninle birlikte hazırladığımız sandviçler, taze meyveler ve soğuk limonata. Başını dizime yaslayıp bulutlara bakacağız... "Şu bulut neye benziyor?" diye soracaksın 💭☁️</p>
+                            
+                            <div class="interactive-element">
+                                <button class="camp-btn" onclick="startAfternoonActivity()">
+                                    🥾 Yürüyüş Macerasını Başlat
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Evening Scene -->
+                <div class="camp-scene" id="evening-scene">
+                    <div class="scene-visual">
+                        <div class="cooking-area">
+                            <div class="camp-fire">
+                                <div class="fire-flames"></div>
+                                <div class="fire-logs"></div>
+                                <div class="fire-sparks"></div>
+                            </div>
+                            <div class="cooking-couple">👩‍🍳👨‍🍳</div>
+                        </div>
+                        <div class="sunset-sky"></div>
+                    </div>
+                    <div class="scene-content">
+                        <h3>🌅 Akşam Yemek Şöleni</h3>
+                        <div class="scene-text">
+                            <p><strong>17:00 - Yemek Hazırlığı</strong></p>
+                            <p>Sen sebzeleri keseceksin, ben ateşi körükleyeceğim. Ara sıra arkandan sarılıp boynunu öpeceğim, "Aşçı başı çok güzel görünüyor" diyeceğim. İkimiz de güleceğiz, mutfaktan daha eğlenceli olacak! 👨‍🍳💕</p>
+                            
+                            <p><strong>19:00 - Romantik Akşam Yemeği</strong></p>
+                            <p>Kamp sandalyelerini yan yana çekip, mum ışığında (kamp feneri ışığında) yemek yiyeceğiz. Ağaçların arasından süzülen son güneş ışıkları, kuş sesleri ve senin gülüşün... Dünyanın en romantik restoranı! 🕯️🌲</p>
+                            
+                            <div class="interactive-element">
+                                <button class="camp-btn" onclick="startEveningActivity()">
+                                    🔥 Yemek Pişirme Macerasını Başlat
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Night Scene -->
+                <div class="camp-scene" id="night-scene">
+                    <div class="scene-visual">
+                        <div class="night-sky">
+                            <div class="shooting-star"></div>
+                        </div>
+                        <div class="campfire-night">
+                            <div class="fire-glow"></div>
+                            <div class="couple-by-fire">🧑‍🤝‍🧑</div>
+                        </div>
+                        <div class="fireflies"></div>
+                    </div>
+                    <div class="scene-content">
+                        <h3>🌙 Yıldızların Altında</h3>
+                        <div class="scene-text">
+                            <p><strong>21:00 - Çay Keyfi</strong></p>
+                            <p>Ateş başında iki fincan sıcak çayla oturacağız. Sen benim omzuma yaslayacaksın, ben de saçlarını okşayacağım. Ateşin çıtırtısını, gecenin seslerini dinleyeceğiz... Sessizlik bile romantik gelecek 🍵🔥</p>
+                            
+                            <p><strong>22:30 - Yıldız Seyri</strong></p>
+                            <p>Ateşi söndürüp çadırın önüne uzanacağız. Yıldızları sayarken sen "Bir tane düştü!" diyeceksin, ben de dilek tutacağım. Dilek; seni sonsuza kadar sevmek, her gece böyle mutlu olmak... ⭐💫</p>
+                            
+                            <p><strong>Gece Yarısı - Yağmur Sürprizi</strong></p>
+                            <p>Eğer yağmur yağarsa çadıra koşacağız, yağmurun çadıra vurma sesini dinleyeceğiz. Sen "Ne güzel ses" diyeceksin, ben de "Sen daha güzelsin" diyeceğim. Sarılıp uyuyacağız... 🌧️💕</p>
+                            
+                            <div class="interactive-element">
+                                <button class="camp-btn" onclick="startNightActivity()">
+                                    ⭐ Yıldızlı Gece Macerasını Başlat
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Special Camping Moments -->
+            <div class="special-moments">
+                <h3>💕 Unutulmaz Kamp Anları</h3>
+                <div class="moments-grid">
+                    <div class="moment-card" onclick="showSpecialMoment('rain')">
+                        <div class="moment-icon">🌧️</div>
+                        <h4>Yağmur Dansı</h4>
+                        <p>Ani yağmurda ıslanırken bile gülüşeceğiz</p>
+                    </div>
+                    <div class="moment-card" onclick="showSpecialMoment('stars')">
+                        <div class="moment-icon">⭐</div>
+                        <h4>Dilek Tutma</h4>
+                        <p>Kayan yıldızlara birlikte dilek tutacağız</p>
+                    </div>
+                    <div class="moment-card" onclick="showSpecialMoment('sunrise')">
+                        <div class="moment-icon">🌅</div>
+                        <h4>Gündoğumu</h4>
+                        <p>İlk ışıkları el ele tutuşarak karşılayacağız</p>
+                    </div>
+                    <div class="moment-card" onclick="showSpecialMoment('cooking')">
+                        <div class="moment-icon">🍳</div>
+                        <h4>Birlikte Yemek</h4>
+                        <p>Ateş başında en lezzetli yemeği yapacağız</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -1802,20 +3064,20 @@
                             break;
                     }
                 }
-                // Hata durumunda sonraki şarkıya geç
-                setTimeout(() => nextSong(), 2000);
+                // Hata durumunda sonraki şarkıya hemen geç
+                setTimeout(() => nextSong(), 500);
             });
             
-            // Ses seviyesini ayarla
-            audioPlayer.volume = 0.3; // %30 ses seviyesi
+            // Optimizasyon ayarları
+            audioPlayer.preload = 'auto'; // Tam şarkıyı önceden yükle
+            audioPlayer.volume = 0.4; // %40 ses seviyesi (biraz daha yüksek)
+            audioPlayer.muted = false; // Sessiz olmadığından emin ol
             
             // İlk şarkıyı yükle
             loadCurrentSong();
             
-            // Otomatik çalmayı dene (kullanıcı etkileşimi gerekebilir)
-            setTimeout(() => {
-                startAutoMusic();
-            }, 2000);
+            // Otomatik çalmayı hemen dene
+            startAutoMusic();
             
             console.log('Audio player başarıyla başlatıldı!');
             return true;
@@ -1863,23 +3125,26 @@
         
         function startAutoMusic() {
             if (audioPlayer) {
-                console.log('Müzik başlatmaya çalışılıyor...');
+                console.log('🎵 Müzik hemen başlatılıyor...');
+                
+                // Kullanıcı etkileşimi event listenerlarını hemen ekle
+                document.addEventListener('click', startMusicOnInteraction, { once: true });
+                document.addEventListener('touchstart', startMusicOnInteraction, { once: true });
+                document.addEventListener('keydown', startMusicOnInteraction, { once: true });
+                document.addEventListener('scroll', startMusicOnInteraction, { once: true });
+                document.addEventListener('mousemove', startMusicOnInteraction, { once: true });
+                
+                // Hemen çalmayı dene
                 const playPromise = audioPlayer.play();
                 if (playPromise !== undefined) {
                     playPromise.then(() => {
-                        console.log('✅ Otomatik müzik başlatıldı! 🎵');
+                        console.log('✅ Müzik otomatik başlatıldı! 🎵');
                         isPlaying = true;
+                        // Event listenerları temizle
+                        removeAllMusicListeners();
                     }).catch(error => {
-                        console.log('⚠️ Otomatik çalma engellendi (tarayıcı politikası):', error);
-                        console.log('💡 Kullanıcı etkileşimi bekleniyor...');
-                        // Kullanıcı etkileşimi sonrası çalmaya çalış
-                        document.addEventListener('click', startMusicOnInteraction, { once: true });
-                        document.addEventListener('touchstart', startMusicOnInteraction, { once: true });
-                        
-                        // Kullanıcıya bilgi ver
-                        setTimeout(() => {
-                            console.log('🎵 Müzik için sayfaya tıklayın!');
-                        }, 1000);
+                        console.log('⚠️ Otomatik çalma engellendi, herhangi bir etkileşimde başlayacak...');
+                        console.log('💡 Tıkla, scroll yap, klavyeye bas veya mouse\'u hareket ettir!');
                     });
                 }
             } else {
@@ -1887,12 +3152,23 @@
             }
         }
         
+        function removeAllMusicListeners() {
+            document.removeEventListener('click', startMusicOnInteraction);
+            document.removeEventListener('touchstart', startMusicOnInteraction);
+            document.removeEventListener('keydown', startMusicOnInteraction);
+            document.removeEventListener('scroll', startMusicOnInteraction);
+            document.removeEventListener('mousemove', startMusicOnInteraction);
+        }
+        
         function startMusicOnInteraction() {
             if (audioPlayer && !isPlaying) {
                 console.log('👆 Kullanıcı etkileşimi tespit edildi, müzik başlatılıyor...');
                 audioPlayer.play().then(() => {
-                    console.log('✅ Kullanıcı etkileşimi sonrası müzik başlatıldı!');
+                    console.log('✅ Kullanıcı etkileşimi sonrası müzik başlatıldı! 🎵');
                     isPlaying = true;
+                    
+                    // Tüm event listenerları temizle
+                    removeAllMusicListeners();
                 }).catch(error => {
                     console.error('❌ Müzik başlatma hatası:', error);
                 });
@@ -1965,131 +3241,224 @@
         function openSurpriseBox() {
             const surpriseBox = document.getElementById('surpriseBox');
             
-            // Her tıklamada yeni animasyon başlat
+            // Kutuyu açma efekti
             surpriseBox.classList.remove('opened');
             
+            // Kisa bir gecikme sonrası aç
             setTimeout(() => {
                 surpriseBox.classList.add('opened');
                 
-                // Ekran kaplayan kalp animasyonu oluştur
-                createFullScreenHeartAnimation();
-            }, 50);
+                // Müzik çalıyorsa sonraki şarkıya geç
+                if (audioPlayer && isPlaying) {
+                    nextSong(); // Sonraki şarkıya geç
+                } else if (audioPlayer && !isPlaying) {
+                    // Eğer müzik çalmıyorsa başlat
+                    audioPlayer.play().catch(() => {});
+                }
+                
+                // Şahaç kalp patlaması animasyonu oluştur
+                createSpectacularHeartExplosion();
+            }, 300);
         }
 
-        function createFullScreenHeartAnimation() {
-            // Overlay oluştur
+        function createSpectacularHeartExplosion() {
+            // Ana overlay oluştur
             const overlay = document.createElement('div');
-            overlay.className = 'heart-animation-overlay';
+            overlay.className = 'spectacular-love-overlay';
             overlay.style.cssText = `
                 position: fixed;
                 top: 0;
                 left: 0;
                 width: 100vw;
                 height: 100vh;
-                background: linear-gradient(135deg, rgba(255, 20, 147, 0.1), rgba(255, 105, 180, 0.2));
-                backdrop-filter: blur(10px);
+                background: radial-gradient(circle, 
+                    rgba(255, 20, 147, 0.2) 0%, 
+                    rgba(255, 105, 180, 0.15) 30%,
+                    rgba(196, 69, 105, 0.1) 60%,
+                    rgba(111, 66, 193, 0.05) 100%);
+                backdrop-filter: blur(15px);
                 z-index: 10000;
                 display: flex;
                 align-items: center;
                 justify-content: center;
                 cursor: pointer;
+                animation: overlayFadeIn 0.5s ease-out;
             `;
 
-            // Büyük kalp oluştur - boyutu küçülttüm
-            const bigHeart = document.createElement('div');
-            bigHeart.innerHTML = '❤️';
-            bigHeart.className = 'big-animated-heart';
-            bigHeart.style.cssText = `
-                font-size: 50px;
+            // İlk giriş kalbi - çok büyük ve etkileyici
+            const megaHeart = document.createElement('div');
+            megaHeart.innerHTML = '💖';
+            megaHeart.className = 'mega-heart';
+            megaHeart.style.cssText = `
+                font-size: 80px;
                 opacity: 0;
-                transform: scale(0);
-                animation: growHeart 2s ease-out forwards;
-                text-shadow: 0 0 20px rgba(255, 20, 147, 0.6);
-                filter: drop-shadow(0 0 15px rgba(255, 105, 180, 0.4));
-                max-width: 300px;
-                max-height: 300px;
+                transform: scale(0) rotate(0deg);
+                animation: megaHeartEntrance 1.5s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+                text-shadow: 
+                    0 0 30px rgba(255, 20, 147, 0.8),
+                    0 0 60px rgba(255, 105, 180, 0.6),
+                    0 0 90px rgba(196, 69, 105, 0.4);
+                filter: 
+                    drop-shadow(0 10px 30px rgba(255, 20, 147, 0.5))
+                    drop-shadow(0 0 60px rgba(255, 105, 180, 0.3));
+                position: relative;
             `;
 
-            overlay.appendChild(bigHeart);
+            overlay.appendChild(megaHeart);
             document.body.appendChild(overlay);
 
-            // 2 saniye sonra patlama efekti
+            // 1.8 saniye sonra kalp patlaması ve mesaj
             setTimeout(() => {
-                createHeartExplosion(overlay);
-            }, 2000);
+                createMegaLoveMessage(overlay, megaHeart);
+            }, 1800);
 
-            // Overlay'e tıklayınca kapan
+            // Çevrende dans eden kalpler
+            setTimeout(() => {
+                createDancingHearts(overlay);
+            }, 1000);
+
+            // Yıldız yağmuru
+            setTimeout(() => {
+                createStarRain(overlay);
+            }, 1200);
+
+            // Overlay'e tıklayınca kapat
             overlay.addEventListener('click', () => {
-                overlay.remove();
+                overlay.style.animation = 'overlayFadeOut 0.5s ease-out forwards';
+                setTimeout(() => overlay.remove(), 500);
             });
         }
 
-        function createHeartExplosion(overlay) {
-            const bigHeart = overlay.querySelector('.big-animated-heart');
+        function createMegaLoveMessage(overlay, megaHeart) {
+            // Mega kalbi patlatma efekti
+            megaHeart.style.animation = 'megaHeartExplode 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards';
             
-            // Büyük kalbi gizle ve patlat
-            bigHeart.style.animation = 'explodeHeart 0.8s ease-out forwards';
+            // Kalp parçacıkları oluştur
+            createHeartParticles(overlay);
             
-            // Yazıyı göster
             setTimeout(() => {
-                bigHeart.innerHTML = '';
+                // Ana kalbi gizle
+                megaHeart.style.opacity = '0';
                 
-                // Sevgi mesajı oluştur - çok daha güzel
-                const loveMessage = document.createElement('div');
-                loveMessage.className = 'love-explosion-message';
-                loveMessage.innerHTML = `
-                    <div class="heart-shower">💖💕💘💗💝💖💕💘</div>
-                    <div class="main-love-text" style="animation: heartbeat 1.5s ease infinite;">SENİ SEVİYORUM</div>
-                    <div class="sub-love-text" style="animation: glow 2s ease infinite alternate;">RÜMEYSA 💕</div>
-                    <div class="love-details" style="animation: fadeInScale 1s ease 0.5s both;">
-                        Sen benim hayatımın en güzel sürprizisin!<br>
-                        Her günüm seninle daha anlamlı, her anım daha güzel.<br>
-                        🌹 Sonsuza kadar seninle olmak istiyorum 🌹
+                // Mega sevgi mesajı
+                const megaLoveMessage = document.createElement('div');
+                megaLoveMessage.className = 'mega-love-message';
+                megaLoveMessage.innerHTML = `
+                    <div class="love-title">
+                        <span class="love-word" style="animation-delay: 0s">S</span>
+                        <span class="love-word" style="animation-delay: 0.1s">E</span>
+                        <span class="love-word" style="animation-delay: 0.2s">N</span>
+                        <span class="love-word" style="animation-delay: 0.3s">İ</span>
+                        <span class="love-heart" style="animation-delay: 0.4s">💖</span>
+                        <span class="love-word" style="animation-delay: 0.5s">S</span>
+                        <span class="love-word" style="animation-delay: 0.6s">E</span>
+                        <span class="love-word" style="animation-delay: 0.7s">V</span>
+                        <span class="love-word" style="animation-delay: 0.8s">İ</span>
+                        <span class="love-word" style="animation-delay: 0.9s">Y</span>
+                        <span class="love-word" style="animation-delay: 1s">O</span>
+                        <span class="love-word" style="animation-delay: 1.1s">R</span>
+                        <span class="love-word" style="animation-delay: 1.2s">U</span>
+                        <span class="love-word" style="animation-delay: 1.3s">M</span>
                     </div>
-                    <div class="floating-hearts-bg">
-                        <span class="floating-heart-bg">❤️</span>
-                        <span class="floating-heart-bg">💕</span>
-                        <span class="floating-heart-bg">💖</span>
-                        <span class="floating-heart-bg">💗</span>
-                        <span class="floating-heart-bg">💘</span>
+                    <div class="love-name">RÜMEYSA</div>
+                    <div class="love-poem">
+                        💫 Sen benim hayatımın en güzel sürprizisin 💫<br>
+                        🌟 Kalbimdeki en değerli hazinemsin 🌟<br>
+                        🌹 Her nefesimde senin adın var 🌹<br>
+                        ✨ Sonsuza kadar seninleyim aşkım ✨
                     </div>
-                    <div class="close-hint" style="animation: pulse 2s ease infinite;">× Kapatmak için tıkla</div>
+                    <div class="love-signature">
+                        💕 Sonsuz sevgimle, Miraç 💕
+                    </div>
                 `;
                 
-                loveMessage.style.cssText = `
+                megaLoveMessage.style.cssText = `
                     text-align: center;
                     color: white;
+                    animation: megaMessageAppear 1.5s ease-out forwards;
                     opacity: 0;
-                    transform: scale(0.8);
-                    animation: showLoveMessage 1.2s ease-out forwards;
-                    position: relative;
-                    z-index: 10002;
+                    transform: scale(0.5);
+                    font-family: 'Georgia', serif;
+                    z-index: 10003;
                 `;
                 
-                overlay.appendChild(loveMessage);
-                
-                // Küçük kalpler salası - daha çok ve renkli
-                createMiniHeartRain(overlay);
-                
-                // Arka plan kalp animasyonları
-                setTimeout(() => {
-                    const floatingHearts = loveMessage.querySelectorAll('.floating-heart-bg');
-                    floatingHearts.forEach((heart, index) => {
-                        heart.style.cssText = `
-                            position: absolute;
-                            font-size: 2rem;
-                            animation: float 3s ease-in-out ${index * 0.5}s infinite;
-                            left: ${20 + index * 15}%;
-                            top: ${30 + (index % 2) * 20}%;
-                            opacity: 0.7;
-                        `;
-                    });
-                }, 500);
+                overlay.appendChild(megaLoveMessage);
             }, 800);
         }
 
+        function createHeartParticles(overlay) {
+            const heartEmojis = ['💖', '💕', '💘', '💗', '💝', '❤️', '💞', '💓', '🥰', '😍'];
+            
+            for (let i = 0; i < 25; i++) {
+                const particle = document.createElement('div');
+                particle.innerHTML = heartEmojis[Math.floor(Math.random() * heartEmojis.length)];
+                particle.style.cssText = `
+                    position: absolute;
+                    font-size: ${25 + Math.random() * 35}px;
+                    left: 50%;
+                    top: 50%;
+                    transform: translate(-50%, -50%);
+                    opacity: 1;
+                    pointer-events: none;
+                    animation: spectacularParticleExplosion ${2.5 + Math.random() * 2}s ease-out forwards;
+                    animation-delay: ${Math.random() * 0.8}s;
+                    z-index: 10002;
+                `;
+                
+                // Rastgele yön ve mesafe
+                const angle = (Math.random() * 360) * (Math.PI / 180);
+                const distance = 250 + Math.random() * 300;
+                particle.style.setProperty('--end-x', `${Math.cos(angle) * distance}px`);
+                particle.style.setProperty('--end-y', `${Math.sin(angle) * distance}px`);
+                
+                overlay.appendChild(particle);
+            }
+        }
+
+        function createDancingHearts(overlay) {
+            const danceHearts = ['💃', '🕺', '💖', '💕', '✨', '🌟', '⭐', '💫'];
+            
+            for (let i = 0; i < 12; i++) {
+                const dancer = document.createElement('div');
+                dancer.innerHTML = danceHearts[i % danceHearts.length];
+                dancer.style.cssText = `
+                    position: absolute;
+                    font-size: ${35 + Math.random() * 20}px;
+                    left: ${15 + Math.random() * 70}%;
+                    top: ${15 + Math.random() * 70}%;
+                    animation: spectacularHeartDance ${3 + Math.random() * 2}s ease-in-out infinite;
+                    animation-delay: ${Math.random() * 2}s;
+                    opacity: 0.85;
+                    pointer-events: none;
+                    z-index: 10001;
+                `;
+                overlay.appendChild(dancer);
+            }
+        }
+
+        function createStarRain(overlay) {
+            const stars = ['⭐', '🌟', '✨', '�', '�', '⚡', '�'];
+            
+            for (let i = 0; i < 20; i++) {
+                const star = document.createElement('div');
+                star.innerHTML = stars[Math.floor(Math.random() * stars.length)];
+                star.style.cssText = `
+                    position: absolute;
+                    font-size: ${18 + Math.random() * 25}px;
+                    left: ${Math.random() * 100}%;
+                    top: -50px;
+                    opacity: 1;
+                    pointer-events: none;
+                    animation: spectacularStarFall ${3 + Math.random() * 4}s linear infinite;
+                    animation-delay: ${Math.random() * 3}s;
+                    z-index: 10001;
+                `;
+                overlay.appendChild(star);
+            }
+        }
+
         function createMiniHeartRain(overlay) {
-            for (let i = 0; i < 50; i++) {
+            for (let i = 0; i < 30; i++) {
                 setTimeout(() => {
                     const miniHeart = document.createElement('div');
                     const heartTypes = ['💖', '💕', '💝', '💗', '🌹', '⭐', '✨', '💞', '❤️', '💓'];
@@ -2104,6 +3473,7 @@
                         z-index: 10001;
                         transform: rotate(${Math.random() * 360}deg);
                     `;
+                    
                     overlay.appendChild(miniHeart);
                     
                     setTimeout(() => {
@@ -2287,12 +3657,17 @@
 
         // Love Letters Functions (Güncellenmiş)
         function handleLetterClick() {
+            console.log('Mektubu tıklandı - Mevcut durum:', letterOpened);
+            
             if (!letterOpened) {
                 openLetter();
+            } else {
+                closeLetter();
             }
         }
         
         function openLetter() {
+            console.log('Mektup açılıyor...');
             const buttonText = document.getElementById('letterBtnText');
             
             if (!letterOpened) {
@@ -2300,9 +3675,14 @@
                 const content = document.getElementById('letterContent');
                 const dateDiv = document.getElementById('letterDate');
                 
+                console.log('Zarf elementi:', envelope);
+                console.log('İçerik elementi:', content);
+                
                 // Open envelope animation
                 envelope.classList.add('opened');
-                buttonText.textContent = 'Mektubu Kapat 📪';
+                if (buttonText) {
+                    buttonText.textContent = 'Mektubu Kapat 📪';
+                }
                 
                 // Show content after animation
                 setTimeout(() => {
@@ -2334,36 +3714,109 @@
         }
 
         function closeLetter() {
+            console.log('Mektup kapatılıyor...');
             letterOpened = false;
             const envelope = document.getElementById('letterEnvelope');
             const content = document.getElementById('letterContent');
+            const buttonText = document.getElementById('letterBtnText');
+            
+            console.log('Mektup kapatma - Zarf:', envelope, 'İçerik:', content);
             
             // Hide content first
-            content.classList.remove('visible');
+            if (content) {
+                content.classList.remove('visible');
+            }
+            
+            // Update button text
+            if (buttonText) {
+                buttonText.textContent = 'Mektubu Aç 💌';
+            }
             
             // Close envelope after content hides
             setTimeout(() => {
-                envelope.classList.remove('opened');
-                // Reset envelope appearance
-                envelope.style.border = '3px solid #d63384';
-                envelope.querySelector('.envelope-flap').style.background = '#e91e63';
-                envelope.querySelector('.envelope-heart').innerHTML = '💌';
+                if (envelope) {
+                    envelope.classList.remove('opened');
+                    // Reset envelope appearance
+                    const envelopeBody = envelope.querySelector('.envelope-body');
+                    const envelopeFlap = envelope.querySelector('.envelope-flap');
+                    const envelopeHeart = envelope.querySelector('.envelope-heart');
+                    
+                    if (envelopeBody) {
+                        envelopeBody.style.border = '3px solid #d63384';
+                    }
+                    if (envelopeFlap) {
+                        envelopeFlap.style.borderTopColor = '#e91e63';
+                    }
+                    if (envelopeHeart) {
+                        envelopeHeart.innerHTML = '💌';
+                    }
+                }
             }, 300);
             
             // Stop floating hearts
             stopFloatingHearts();
         }
 
-        function getRandomLetter() {
-            currentLetterIndex = Math.floor(Math.random() * loveLetters.length);
+        function getRandomLetter(event) {
+            if (event) {
+                event.preventDefault();
+                event.stopPropagation();
+            }
+            console.log('Rastgele mektup isteniyor...');
+            
+            // Yeni rastgele index seç
+            const newRandomIndex = Math.floor(Math.random() * loveLetters.length);
+            currentLetterIndex = newRandomIndex;
+            console.log('Seçilen rastgele mektup index:', currentLetterIndex);
+            
+            // Mektubu sıfırla
             resetLetter();
             
+            // Kısa bir bekleme sonrası aç
             setTimeout(() => {
-                openLetter();
+                const envelope = document.getElementById('letterEnvelope');
+                const content = document.getElementById('letterContent');
+                const dateDiv = document.getElementById('letterDate');
+                
+                // Zarfı aç
+                envelope.classList.add('opened');
+                
+                setTimeout(() => {
+                    content.classList.add('visible');
+                    
+                    // Rastgele mektup tarihini ayarla
+                    const randomDate = new Date();
+                    randomDate.setDate(randomDate.getDate() - Math.floor(Math.random() * 365)); // Son 1 yıl içinde rastgele tarih
+                    const options = { year: 'numeric', month: 'long', day: 'numeric' };
+                    dateDiv.innerHTML = `🎲 ${randomDate.toLocaleDateString('tr-TR', options)}<br><small style="opacity: 0.7;">Rastgele Seçilmiş Mektup (${currentLetterIndex + 1}/${loveLetters.length})</small>`;
+                    
+                    // Rastgele mektup içeriğini ayarla
+                    document.getElementById('letterText').innerHTML = 
+                        loveLetters[currentLetterIndex].text.replace(/\n/g, '<br><br>');
+                    
+                    // Floating hearts başlat
+                    startFloatingHearts();
+                    
+                }, 500);
+                
+                letterOpened = true;
+                
+                // Buton textini güncelle
+                const buttonText = document.getElementById('letterBtnText');
+                if (buttonText) {
+                    buttonText.textContent = 'Mektubu Kapat 📪';
+                }
+                
             }, 200);
         }
 
-        function getSpecialLetter() {
+        function getSpecialLetter(event) {
+            if (event) {
+                event.preventDefault();
+                event.stopPropagation();
+            }
+            console.log('Özel mektup isteniyor...');
+            
             // Choose a random special letter
             const specialIndex = Math.floor(Math.random() * specialLetters.length);
             
@@ -2375,9 +3828,19 @@
                 const dateDiv = document.getElementById('letterDate');
                 
                 // Special envelope color
-                envelope.style.border = '3px solid gold';
-                envelope.querySelector('.envelope-flap').style.background = 'linear-gradient(45deg, gold, orange)';
-                envelope.querySelector('.envelope-heart').innerHTML = '✨💌✨';
+                const envelopeBody = envelope.querySelector('.envelope-body');
+                const envelopeFlap = envelope.querySelector('.envelope-flap');
+                const envelopeHeart = envelope.querySelector('.envelope-heart');
+                
+                if (envelopeBody) {
+                    envelopeBody.style.border = '3px solid gold';
+                }
+                if (envelopeFlap) {
+                    envelopeFlap.style.borderTopColor = 'gold';
+                }
+                if (envelopeHeart) {
+                    envelopeHeart.innerHTML = '✨💌✨';
+                }
                 
                 // Open envelope
                 envelope.classList.add('opened');
@@ -2400,23 +3863,50 @@
                 
                 letterOpened = true;
                 
+                // Buton textini güncelle
+                const buttonText = document.getElementById('letterBtnText');
+                if (buttonText) {
+                    buttonText.textContent = 'Mektubu Kapat 📪';
+                }
+                
             }, 200);
         }
 
         function resetLetter() {
+            console.log('Mektup resetleniyor...');
             letterOpened = false;
             const envelope = document.getElementById('letterEnvelope');
             const content = document.getElementById('letterContent');
+            const buttonText = document.getElementById('letterBtnText');
             
             // Reset envelope
-            envelope.classList.remove('opened');
-            envelope.style.border = '3px solid #d63384';
-            envelope.querySelector('.envelope-flap').style.background = '#e91e63';
-            envelope.querySelector('.envelope-heart').innerHTML = '💌';
+            if (envelope) {
+                envelope.classList.remove('opened');
+                const envelopeBody = envelope.querySelector('.envelope-body');
+                const envelopeFlap = envelope.querySelector('.envelope-flap');
+                const envelopeHeart = envelope.querySelector('.envelope-heart');
+                
+                if (envelopeBody) {
+                    envelopeBody.style.border = '3px solid #d63384';
+                }
+                if (envelopeFlap) {
+                    envelopeFlap.style.borderTopColor = '#e91e63';
+                }
+                if (envelopeHeart) {
+                    envelopeHeart.innerHTML = '💌';
+                }
+            }
             
             // Reset content
-            content.classList.remove('visible');
-            content.style.borderLeft = '5px solid #e91e63';
+            if (content) {
+                content.classList.remove('visible');
+                content.style.borderLeft = '5px solid #e91e63';
+            }
+            
+            // Reset button text
+            if (buttonText) {
+                buttonText.textContent = 'Mektubu Aç 💌';
+            }
             
             // Stop floating hearts
             stopFloatingHearts();
@@ -2645,6 +4135,390 @@
         `;
         document.head.appendChild(style);
 
+        // Camping Functions - Interactive Romantic Camp Experience
+        let currentCampScene = 'morning';
+        let campingAnimations = {};
+
+        function showCampTime(time) {
+            console.log('Kamp zamanı değiştiriliyor:', time);
+            
+            // Update active button
+            document.querySelectorAll('.timeline-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            document.querySelector(`[data-time="${time}"]`).classList.add('active');
+            
+            // Hide all scenes
+            document.querySelectorAll('.camp-scene').forEach(scene => {
+                scene.classList.remove('active');
+            });
+            
+            // Show selected scene with animation
+            setTimeout(() => {
+                const targetScene = document.getElementById(`${time}-scene`);
+                targetScene.classList.add('active');
+                currentCampScene = time;
+                
+                // Start scene-specific animations
+                startSceneAnimations(time);
+                
+                // Play appropriate background sounds (if we had audio)
+                playSceneSounds(time);
+                
+            }, 200);
+        }
+
+        function startSceneAnimations(scene) {
+            // Clear previous animations
+            Object.values(campingAnimations).forEach(animation => clearInterval(animation));
+            campingAnimations = {};
+            
+            switch(scene) {
+                case 'morning':
+                    startMorningAnimations();
+                    break;
+                case 'afternoon':
+                    startAfternoonAnimations();
+                    break;
+                case 'evening':
+                    startEveningAnimations();
+                    break;
+                case 'night':
+                    startNightAnimations();
+                    break;
+            }
+        }
+
+        function startMorningAnimations() {
+            // Sunrise animation
+            const sunrise = document.getElementById('sunrise');
+            if (sunrise) {
+                sunrise.style.animation = 'sunRise 4s ease-in-out infinite';
+            }
+        }
+
+        function startAfternoonAnimations() {
+            // Forest sounds and hiking animation
+            console.log('Öğlen animasyonları başlatılıyor...');
+        }
+
+        function startEveningAnimations() {
+            // Fire and cooking animations
+            console.log('Akşam animasyonları başlatılıyor...');
+        }
+
+        function startNightAnimations() {
+            // Stars and fireflies
+            console.log('Gece animasyonları başlatılıyor...');
+            
+            // Add shooting star occasionally
+            campingAnimations.shootingStar = setInterval(() => {
+                createShootingStar();
+            }, 8000);
+        }
+
+        function playSceneSounds(scene) {
+            // Here we could add ambient sounds for each scene
+            const sounds = {
+                morning: '🐦 Kuş sesleri...',
+                afternoon: '🌿 Doğa sesleri...',
+                evening: '🔥 Ateş çıtırtısı...',
+                night: '🦗 Gece sesleri...'
+            };
+            
+            console.log(`🔊 ${sounds[scene]}`);
+        }
+
+        function createShootingStar() {
+            const star = document.createElement('div');
+            star.className = 'shooting-star';
+            star.style.cssText = `
+                position: absolute;
+                top: 20%;
+                right: 10%;
+                width: 3px;
+                height: 3px;
+                background: linear-gradient(45deg, #fff, #f39c12);
+                border-radius: 50%;
+                animation: shootingStar 2s linear forwards;
+            `;
+            
+            document.querySelector('.night-sky').appendChild(star);
+            
+            setTimeout(() => {
+                if (star.parentNode) {
+                    star.remove();
+                }
+            }, 2000);
+        }
+
+        // Interactive Camp Activities
+        function startMorningActivity() {
+            showCampMessage('🌅', '⛄ Günaydın Aşkım!', 'Kahveni hazırladım, gel birlikte güneşin doğuşunu izleyelim! Seninle geçirdiğim her sabah bir hediye... 💕');
+        }
+
+        function startAfternoonActivity() {
+            showCampMessage('🥾', '🌲 Hadi Yürüyüşe!', 'Elini tutup ormanda kaybolalım! Sen çok güzel bir çiçek gördün, hemen fotoğrafını çekiyorum... 📸💝');
+        }
+
+        function startEveningActivity() {
+            showCampMessage('🔥', '🍳 Yemek Zamanı!', 'Beraber yemek yapıyoruz! Sen havucu kesiyorsun, ben ateşi körüklüyorum. Ara sıra arkandan sarılıp seni öpüyorum... 👨‍🍳❤️');
+        }
+
+        function startNightActivity() {
+            showCampMessage('⭐', '🌙 Yıldızlı Gece', 'Kayan yıldıza dilek tutuyorum: "Seni sonsuza kadar sevmek istiyorum!" Sen de aynı dileği tutuyor musun? 💫💕');
+        }
+
+        function showSpecialMoment(momentType) {
+            const moments = {
+                rain: {
+                    icon: '🌧️',
+                    title: 'Yağmur Dansı',
+                    message: 'Ani yağmur başladı! Çadıra koşmak yerine yağmurda dans ediyoruz. Islansak ne olacak, aşkımız bizi ısıtıyor! 💃🕺'
+                },
+                stars: {
+                    icon: '⭐',
+                    title: 'Dilek Anımız',  
+                    message: 'Kayan yıldız! Hemen dilek tut! "Seninle sonsuza kadar mutlu olmak istiyorum" diyorum. Sen ne dilek tuttun? 🌟💫'
+                },
+                sunrise: {
+                    icon: '🌅',
+                    title: 'İlk Işıklar',
+                    message: 'Sabahın ilk ışıklarında uyanıyorum. Sen hala uyuyorsun, yüzün melek gibi... Sessizce saçlarını okşuyorum 😇💕'
+                },
+                cooking: {
+                    icon: '🍳',
+                    title: 'Beraber Yemek',
+                    message: 'Kamp ocağında pizza yapıyoruz! Sen hamuru açıyorsun, ben malzeme diziyorum. En lezzetli pizza bu olacak çünkü aşkla yapıldı! 🍕❤️'
+                }
+            };
+            
+            const moment = moments[momentType];
+            showCampMessage(moment.icon, moment.title, moment.message);
+            
+            // Add special effects for each moment
+            createMomentEffect(momentType);
+        }
+
+        function createMomentEffect(momentType) {
+            switch(momentType) {
+                case 'rain':
+                    createRainEffect();
+                    break;
+                case 'stars':
+                    createStarShower();
+                    break;
+                case 'sunrise':
+                    createSunriseGlow();
+                    break;
+                case 'cooking':
+                    createCookingSmoke();
+                    break;
+            }
+        }
+
+        function createRainEffect() {
+            const campingSection = document.querySelector('.camping-section');
+            for (let i = 0; i < 50; i++) {
+                setTimeout(() => {
+                    const drop = document.createElement('div');
+                    drop.style.cssText = `
+                        position: absolute;
+                        left: ${Math.random() * 100}%;
+                        top: -10px;
+                        width: 2px;
+                        height: 20px;
+                        background: linear-gradient(180deg, transparent, rgba(173, 216, 230, 0.8));
+                        animation: rainDrop 1s linear forwards;
+                        z-index: 10;
+                    `;
+                    campingSection.appendChild(drop);
+                    
+                    setTimeout(() => drop.remove(), 1000);
+                }, i * 50);
+            }
+        }
+
+        function createStarShower() {
+            const campingSection = document.querySelector('.camping-section');
+            for (let i = 0; i < 20; i++) {
+                setTimeout(() => {
+                    const star = document.createElement('div');
+                    star.innerHTML = '⭐';
+                    star.style.cssText = `
+                        position: absolute;
+                        left: ${Math.random() * 100}%;
+                        top: ${Math.random() * 50}%;
+                        font-size: ${Math.random() * 20 + 15}px;
+                        animation: starTwinkle 2s ease-in-out forwards;
+                        z-index: 5;
+                    `;
+                    campingSection.appendChild(star);
+                    
+                    setTimeout(() => star.remove(), 2000);
+                }, i * 100);
+            }
+        }
+
+        function createSunriseGlow() {
+            const glow = document.createElement('div');
+            glow.style.cssText = `
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: radial-gradient(circle at 70% 30%, rgba(255, 215, 0, 0.3) 0%, transparent 50%);
+                z-index: 1;
+                animation: sunriseGlow 3s ease-in-out forwards;
+            `;
+            
+            document.querySelector('.camping-section').appendChild(glow);
+            setTimeout(() => glow.remove(), 3000);
+        }
+
+        function createCookingSmoke() {
+            const smoke = document.createElement('div');
+            smoke.innerHTML = '💨';
+            smoke.style.cssText = `
+                position: absolute;
+                left: 50%;
+                top: 30%;
+                transform: translateX(-50%);
+                font-size: 2rem;
+                animation: smokeRise 3s ease-out forwards;
+                z-index: 5;
+            `;
+            
+            document.querySelector('.camping-section').appendChild(smoke);
+            setTimeout(() => smoke.remove(), 3000);
+        }
+
+        function showCampMessage(icon, title, message) {
+            // Create camp message overlay
+            const overlay = document.createElement('div');
+            overlay.className = 'camp-message-overlay';
+            overlay.style.cssText = `
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100vw;
+                height: 100vh;
+                background: rgba(0, 0, 0, 0.7);
+                backdrop-filter: blur(10px);
+                z-index: 10000;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+                animation: overlayFadeIn 0.5s ease-out;
+            `;
+
+            const messageBox = document.createElement('div');
+            messageBox.className = 'camp-message-box';
+            messageBox.innerHTML = `
+                <div class="camp-message-content">
+                    <div class="camp-message-icon">${icon}</div>
+                    <h3 class="camp-message-title">${title}</h3>
+                    <p class="camp-message-text">${message}</p>
+                    <div class="camp-message-hearts">💕 💖 💕</div>
+                </div>
+            `;
+            
+            messageBox.style.cssText = `
+                background: linear-gradient(135deg, rgba(74, 144, 226, 0.9), rgba(80, 227, 194, 0.9));
+                border-radius: 20px;
+                padding: 40px;
+                max-width: 500px;
+                text-align: center;
+                color: white;
+                animation: messageBoxAppear 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+                box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            `;
+
+            overlay.appendChild(messageBox);
+            document.body.appendChild(overlay);
+
+            // Close on click
+            overlay.addEventListener('click', () => {
+                overlay.style.animation = 'overlayFadeOut 0.5s ease-out forwards';
+                setTimeout(() => overlay.remove(), 500);
+            });
+
+            // Auto close after 5 seconds
+            setTimeout(() => {
+                if (overlay.parentNode) {
+                    overlay.style.animation = 'overlayFadeOut 0.5s ease-out forwards';
+                    setTimeout(() => overlay.remove(), 500);
+                }
+            }, 5000);
+        }
+
+        // Add camp-specific CSS animations
+        const campingAnimationStyles = document.createElement('style');
+        campingAnimationStyles.textContent = `
+            @keyframes shootingStar {
+                0% { transform: translateX(0) translateY(0) opacity(1); }
+                100% { transform: translateX(-200px) translateY(100px) opacity(0); }
+            }
+            
+            @keyframes rainDrop {
+                0% { top: -10px; opacity: 1; }
+                100% { top: 100vh; opacity: 0; }
+            }
+            
+            @keyframes starTwinkle {
+                0%, 100% { opacity: 0.3; transform: scale(0.5); }
+                50% { opacity: 1; transform: scale(1.2); }
+            }
+            
+            @keyframes sunriseGlow {
+                0% { opacity: 0; }
+                50% { opacity: 1; }
+                100% { opacity: 0; }
+            }
+            
+            @keyframes smokeRise {
+                0% { transform: translateX(-50%) translateY(0) opacity(1); }
+                100% { transform: translateX(-50%) translateY(-100px) opacity(0); }
+            }
+            
+            @keyframes messageBoxAppear {
+                0% { transform: scale(0.3) rotate(-10deg); opacity: 0; }
+                100% { transform: scale(1) rotate(0deg); opacity: 1; }
+            }
+            
+            .camp-message-icon {
+                font-size: 4rem;
+                margin-bottom: 20px;
+                animation: iconBounce 1s ease-in-out infinite;
+            }
+            
+            .camp-message-title {
+                font-size: 2rem;
+                margin-bottom: 15px;
+                font-weight: 600;
+            }
+            
+            .camp-message-text {
+                font-size: 1.2rem;
+                line-height: 1.6;
+                margin-bottom: 20px;
+            }
+            
+            .camp-message-hearts {
+                font-size: 1.5rem;
+                animation: heartsFloat 2s ease-in-out infinite;
+            }
+            
+            @keyframes heartsFloat {
+                0%, 100% { transform: translateY(0); }
+                50% { transform: translateY(-10px); }
+            }
+        `;
+        
+        document.head.appendChild(campingAnimationStyles);
+
         // Initialize
         document.addEventListener('DOMContentLoaded', function() {
             // Start falling hearts
@@ -2659,11 +4533,9 @@
             // Shuffle songs for variety
             shuffleSongs();
             
-            // Initialize HTML5 Audio Player
-            console.log('HTML5 Audio Player başlatılıyor...');
-            setTimeout(() => {
-                initializeAudioPlayer();
-            }, 1000); // 1 saniye gecikme ile başlat
+            // Initialize HTML5 Audio Player - HEMEN BAŞLAT
+            console.log('HTML5 Audio Player hemen başlatılıyor...');
+            initializeAudioPlayer(); // Gecikme yok, hemen başlat
         });
     </script>
 </body>
