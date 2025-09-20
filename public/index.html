@@ -2459,7 +2459,7 @@
 
 
     <!-- HTML5 Audio Player -->
-    <audio id="audioPlayer" preload="auto" loop>
+    <audio id="audioPlayer" preload="auto" loop autoplay>
         <source src="" type="audio/mpeg">
         Tarayıcınız HTML5 audio desteği sunmuyor.
     </audio>
@@ -2843,7 +2843,7 @@
                         <h3>🌅 Akşam Yemek Şöleni</h3>
                         <div class="scene-text">
                             <p><strong>17:00 - Yemek Hazırlığı</strong></p>
-                            <p>Sen sebzeleri keseceksin, ben ateşi körükleyeceğim. Ara sıra arkandan sarılıp boynunu öpeceğim, "Aşçı başı çok güzel görünüyor" diyeceğim. İkimiz de güleceğiz, mutfaktan daha eğlenceli olacak! 👨‍🍳💕</p>
+                            <p>Sen sebzeleri keseceksin, ben ateşi körükleyeceğim. Ara sıra arkandan sarılıp seni öpeceğim, "Aşçı başı çok güzel görünüyor" diyeceğim. İkimiz de güleceğiz, mutfaktan daha eğlenceli olacak! 👨‍🍳💕</p>
                             
                             <p><strong>19:00 - Romantik Akşam Yemeği</strong></p>
                             <p>Kamp sandalyelerini yan yana çekip, mum ışığında (kamp feneri ışığında) yemek yiyeceğiz. Ağaçların arasından süzülen son güneş ışıkları, kuş sesleri ve senin gülüşün... Dünyanın en romantik restoranı! 🕯️🌲</p>
@@ -2873,7 +2873,7 @@
                         <h3>🌙 Yıldızların Altında</h3>
                         <div class="scene-text">
                             <p><strong>21:00 - Çay Keyfi</strong></p>
-                            <p>Ateş başında iki fincan sıcak çayla oturacağız. Sen benim omzuma yaslayacaksın, ben de saçlarını okşayacağım. Ateşin çıtırtısını, gecenin seslerini dinleyeceğiz... Sessizlik bile romantik gelecek 🍵🔥</p>
+                            <p>Ateş başında iki fincan sıcak çayla oturacağız. Sen benim omzuma yaslayacaksın, ben de yanaklarını okşayacağım. Ateşin çıtırtısını, gecenin seslerini dinleyeceğiz... Sessizlik bile romantik gelecek 🍵🔥</p>
                             
                             <p><strong>22:30 - Yıldız Seyri</strong></p>
                             <p>Ateşi söndürüp çadırın önüne uzanacağız. Yıldızları sayarken sen "Bir tane düştü!" diyeceksin, ben de dilek tutacağım. Dilek; seni sonsuza kadar sevmek, her gece böyle mutlu olmak... ⭐💫</p>
@@ -3125,26 +3125,30 @@
         
         function startAutoMusic() {
             if (audioPlayer) {
-                console.log('🎵 Müzik hemen başlatılıyor...');
+                console.log('🎵 Müzik otomatik başlatılıyor...');
                 
-                // Kullanıcı etkileşimi event listenerlarını hemen ekle
-                document.addEventListener('click', startMusicOnInteraction, { once: true });
-                document.addEventListener('touchstart', startMusicOnInteraction, { once: true });
-                document.addEventListener('keydown', startMusicOnInteraction, { once: true });
-                document.addEventListener('scroll', startMusicOnInteraction, { once: true });
-                document.addEventListener('mousemove', startMusicOnInteraction, { once: true });
+                // Autoplay özelliğini etkinleştir
+                audioPlayer.autoplay = true;
+                audioPlayer.muted = false; // Muted olmadığından emin ol
                 
-                // Hemen çalmayı dene
+                // İlk olarak hemen çalmayı dene
                 const playPromise = audioPlayer.play();
                 if (playPromise !== undefined) {
                     playPromise.then(() => {
                         console.log('✅ Müzik otomatik başlatıldı! 🎵');
                         isPlaying = true;
-                        // Event listenerları temizle
-                        removeAllMusicListeners();
+                        // Başarılı olduysa event listenerları eklemeyiz
                     }).catch(error => {
-                        console.log('⚠️ Otomatik çalma engellendi, herhangi bir etkileşimde başlayacak...');
-                        console.log('💡 Tıkla, scroll yap, klavyeye bas veya mouse\'u hareket ettir!');
+                        console.log('⚠️ Otomatik çalma engellendi, fallback yöntemler deneniyor...');
+                        
+                        // Fallback: minimal kullanıcı etkileşimi event listenerları
+                        document.addEventListener('click', startMusicOnInteraction, { once: true });
+                        document.addEventListener('touchstart', startMusicOnInteraction, { once: true });
+                        document.addEventListener('keydown', startMusicOnInteraction, { once: true });
+                        document.addEventListener('scroll', startMusicOnInteraction, { once: true });
+                        document.addEventListener('mousemove', startMusicOnInteraction, { once: true });
+                        
+                        console.log('💡 Herhangi bir etkileşimde müzik başlayacak!');
                     });
                 }
             } else {
@@ -4284,7 +4288,7 @@
                 sunrise: {
                     icon: '🌅',
                     title: 'İlk Işıklar',
-                    message: 'Sabahın ilk ışıklarında uyanıyorum. Sen hala uyuyorsun, yüzün melek gibi... Sessizce saçlarını okşuyorum 😇💕'
+                    message: 'Sabahın ilk ışıklarında uyanıyorum. Sen hala uyuyorsun, yüzün melek gibi...  😇💕'
                 },
                 cooking: {
                     icon: '🍳',
@@ -4536,7 +4540,37 @@
             // Initialize HTML5 Audio Player - HEMEN BAŞLAT
             console.log('HTML5 Audio Player hemen başlatılıyor...');
             initializeAudioPlayer(); // Gecikme yok, hemen başlat
+            
+            // Agresif autoplay denemesi - çeşitli event trigger'lar ile
+            setTimeout(() => {
+                attemptAggressiveAutoplay();
+            }, 500); // 500ms sonra tekrar dene
+            
+            setTimeout(() => {
+                attemptAggressiveAutoplay();
+            }, 1500); // 1.5 saniye sonra tekrar dene
         });
+        
+        function attemptAggressiveAutoplay() {
+            if (!isPlaying && audioPlayer) {
+                console.log('🎵 Agresif autoplay denemesi yapılıyor...');
+                
+                // Ses seviyesini ayarla
+                audioPlayer.volume = 0.5;
+                audioPlayer.muted = false;
+                
+                // Play promise ile dene
+                const playPromise = audioPlayer.play();
+                if (playPromise !== undefined) {
+                    playPromise.then(() => {
+                        console.log('✅ Agresif autoplay başarılı! 🎵');
+                        isPlaying = true;
+                    }).catch(error => {
+                        console.log('⚠️ Agresif autoplay başarısız:', error.message);
+                    });
+                }
+            }
+        }
     </script>
 </body>
 </html>
